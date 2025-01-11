@@ -57,7 +57,7 @@ export const metadata: Metadata = {
       "Explore projects and engineering notes by Abhoy Sarkar — Software Developer focused on Go, Next.js, Prisma and PostgreSQL.",
     images: [
       {
-        url: "/og-image.jpg",
+        url: "/og-image.png",
         width: 1200,
         height: 630,
         alt: "Abhoy Sarkar Portfolio",
