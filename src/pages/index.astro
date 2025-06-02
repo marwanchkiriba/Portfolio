@@ -1,0 +1,16 @@
+---
+import Layout from "../layouts/Layout.astro";
+import HeroIndex from "../components/portfolio/HeroIndex.astro";
+
+const pageTitle = "Portfolio de CHKIRIBA MARWAN 🚀";
+const description =
+  "Bienvenue sur le portfolio de CHKIRIBA MARWAN, étudiant en informatique passionné par la création d'applications web innovantes.";
+const ogimage = {
+  url: "/images/imagedefault.webp",
+  alt: "Photo de CHKIRIBA MARWAN",
+};
+---
+
+<Layout pageTitle={pageTitle} description={description} ogimage={ogimage}>
+  <HeroIndex />
+</Layout>

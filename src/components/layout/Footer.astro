@@ -1,0 +1,52 @@
+---
+import Social from "../ui/Social.astro";
+import { Icon } from "astro-icon/components";
+
+const currentYear = new Date().getFullYear();
+const name = "CHKIRIBA MARWAN";
+const email = "marwanchkiriba9@gmail.com";
+const github = "https://github.com/marwanchkiriba";
+const linkedin = "https://www.linkedin.com/in/marwan-chkiriba/";
+---
+
+<footer
+  class="w-full bg-gradient-to-t from-mint-300/5 dark:from-mint-600/5 to-transparent py-8 px-8 max-sm:px-4"
+>
+  <nav
+    class="mx-auto flex max-w-7xl flex-col items-center justify-center gap-4"
+    role="contentinfo"
+    aria-label="Footer"
+  >
+    <div class="flex items-center gap-4">
+      <a href="/" aria-label="Go to home">
+        <Icon
+          name="logo"
+          class="h-6 cursor-pointer transition-all hover:text-mint-300"
+          aria-hidden="true"
+        />
+      </a>
+    </div>
+
+    <div class="flex flex-col items-center justify-center gap-2">
+      <p class="text-center text-sm font-medium dark:text-zinc-300 text-blacktext">
+        © {currentYear} {name}. Tous droits réservés.
+      </p>
+      <p class="text-center text-sm font-medium dark:text-zinc-300 text-blacktext">
+        Développé avec <span class="text-red-500">❤</span> en utilisant
+        <a
+          href="https://astro.build"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="text-mint-500 hover:text-mint-300 transition-colors"
+          >Astro</a
+        >
+      </p>
+    </div>
+
+    <div class="flex items-center justify-center gap-5" role="list" aria-label="Liens sociaux">
+      <Social link={"mailto:" + email} iconName="envelope" label={`Envoyer un email à ${email}`} />
+      <Social link={github} iconName="github" label={`Visiter ${name} sur GitHub`} />
+      <Social link={linkedin} iconName="linkedin" label={`Visiter ${name} sur LinkedIn`} />
+    </div>
+  </nav>
+</footer>
