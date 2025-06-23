@@ -6,13 +6,17 @@ import Presentation from "@/components/Presentation.astro";
 import Projects from "@/components/projects.astro";
 import Contact from "@/components/contact.astro";
 import Footer from "@/components/footer.astro";
+import Competences from "@/components/competences.astro";
+import Experiences from "@/components/experiences.astro";
 ---
 
-<Layout title="Marwan Chkiriba - Portfolio">
+<Layout title="Marwan Chkiriba - Portfolio" class="scroll-smooth snap-y snap-mandatory">
   <Nav />
-  <Home />
-  <Presentation />
-  <Projects />
-  <Contact />
+  <Home class="snap-start" />
+  <Presentation class="snap-start" />
+  <Competences class="snap-start" />
+  <Experiences class="snap-start" />
+  <Projects class="snap-start" />
+  <Contact class="snap-start" />
   <Footer />
 </Layout>

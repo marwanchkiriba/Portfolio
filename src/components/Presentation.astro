@@ -1,139 +1,50 @@
-  <section id="presentation" class="max-w-5xl mx-auto py-16 px-4 space-y-8 text-[var(--white)]">
-  <h2 class="text-4xl font-bold text-center mb-12 text-[#00FFFF] scanline-text" data-text="Présentation Personnelle">
-    Présentation Personnelle
+<section id="presentation" class="relative max-w-6xl mx-auto px-6 py-24 z-10 snap-start">
+  <h2 class="text-4xl md:text-5xl font-extrabold text-center text-[#00FFAA] tracking-wide glowing-text">
+    Présentation
   </h2>
 
-  <!-- Texte d'introduction avec effet propre -->
-<div class="text-md md:text-lg text-[#00FFFF] custom-cyan-glow mt-2 text-center max-w-3xl mx-auto">
-  Je m’appelle Marwan Chkiriba et je suis actuellement en deuxième année de BUT Informatique à l’IUT de Villetaneuse.
-  Si je devais résumer mon parcours en quelques mots, je dirais que c’est une suite de découvertes, de remises en question,
-  et surtout de progrès réels, aussi bien sur le plan technique que personnel.
-</div>
+  <p class="mt-8 text-center text-[#00FFAA] text-lg md:text-xl max-w-3xl mx-auto font-medium animated-fade">
+    Je m'appelle Marwan Chkiriba, étudiant en 2e année de BUT Informatique. Mon parcours est une aventure humaine et technique
+    rythmée par la curiosité, le dépassement et la passion.
+  </p>
 
-
-  <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-
-    <!-- Carte Mon Parcours -->
-    <div class="presentation-card" onclick="openModal(this)">
-      <h3 class="text-2xl font-semibold text-[#00FFFF]">Mon Parcours</h3>
-      <p class="text-sm mt-2 opacity-80">Un aperçu de mon évolution dans le BUT Informatique.</p>
-      <div class="modal-content">
-        <h3 class="text-2xl font-semibold text-[#00FFFF]">Mon Parcours</h3>
-        <p>Quand j’ai commencé le BUT, je voyais l’informatique comme un domaine très vaste, parfois même un peu intimidant. Mais petit à petit, j’ai pris confiance, en découvrant l’envers du décor : le développement d’applications, l’administration de systèmes, la gestion des données, et tout ce qui rend ce métier vivant et concret.</p>
-        <p class="mt-4">Ce qui m’a vraiment marqué, c’est l’importance des bonnes pratiques : écrire un code propre, travailler en équipe, documenter ce qu’on fait… Toutes ces compétences sont devenues naturelles avec le temps et la pratique, surtout lors des projets où il faut s’organiser, s’entraider et s’adapter aux imprévus.</p>
+  <div class="mt-16 grid grid-cols-1 md:grid-cols-2 gap-10 z-20 relative">
+    <!-- Carte : Mon Parcours -->
+    <div class="group relative bg-gradient-to-br from-[#071d1c] via-[#0d2e2a] to-[#061d1c] border border-[#00FFAA44] rounded-3xl p-6 backdrop-blur-md transition-all duration-300 hover:scale-[1.025] hover:shadow-[0_0_25px_#00ffaa55]">
+      <div class="text-xl font-semibold text-[#00FFAA] mb-2">🚀 Mon Parcours</div>
+      <div class="text-white/80 mb-4 text-sm italic">Mon évolution dans le BUT Informatique</div>
+      <div class="text-white/90 text-base leading-relaxed">
+        J'ai commencé le BUT avec une vision large et parfois floue de l'informatique. Mais au fil des semestres, j'ai appris à structurer mes idées, coder proprement, travailler en équipe, et documenter comme un pro.
       </div>
+      <div class="absolute -inset-1 rounded-3xl bg-[#00ffaa11] blur-md opacity-0 group-hover:opacity-60 transition-all duration-300"></div>
     </div>
 
-    <!-- Carte Expérience -->
-    <div class="presentation-card" onclick="openModal(this)">
-      <h3 class="text-2xl font-semibold text-[#00FFFF]">Une expérience professionnelle formatrice</h3>
-      <p class="text-sm mt-2 opacity-80">Mon stage chez Réseaux Bureautique</p>
-      <div class="modal-content">
-        <h3 class="text-2xl font-semibold text-[#00FFFF]">Une expérience professionnelle formatrice</h3>
-        <p>Mon stage chez Réseaux Bureautique a été une étape décisive. J’ai intégré une équipe à taille humaine, où la polyvalence est de mise. J’ai pu installer et configurer des postes, déployer des serveurs et des NAS, mais aussi intervenir auprès des clients, parfois dans l’urgence, pour résoudre leurs problèmes techniques.</p>
-        <p class="mt-4">Ce qui m’a vraiment plu, c’est d’avoir pu toucher à différents aspects du métier : la technique pure, bien sûr, mais aussi le contact humain, la rédaction de procédures, et même un peu de développement en personnalisant des outils comme GLPI ou le site WordPress de l’entreprise. Ce mélange entre le concret et le développement m’a donné envie d’aller plus loin dans cette voie.</p>
+    <!-- Carte : Mes Ambitions -->
+    <div class="group relative bg-gradient-to-br from-[#071d1c] via-[#0d2e2a] to-[#061d1c] border border-[#00FFAA44] rounded-3xl p-6 backdrop-blur-md transition-all duration-300 hover:scale-[1.025] hover:shadow-[0_0_25px_#00ffaa55]">
+      <div class="text-xl font-semibold text-[#00FFAA] mb-2">🎯 Mes Ambitions</div>
+      <div class="text-white/80 mb-4 text-sm italic">Un regard vers l'avenir</div>
+      <div class="text-white/90 text-base leading-relaxed">
+        Je vise un Bac+5 et je souhaite devenir un développeur polyvalent, capable d'imaginer, concevoir et perfectionner des applications innovantes. Mon moteur : apprendre sans cesse, et livrer du concret.
       </div>
-    </div>
-
-    <!-- Carte Ce que j’ai appris -->
-    <div class="presentation-card" onclick="openModal(this)">
-      <h3 class="text-2xl font-semibold text-[#00FFFF]">Ce que j’ai appris</h3>
-      <p class="text-sm mt-2 opacity-80">Compétences techniques et personnelles acquises</p>
-      <div class="modal-content">
-        <h3 class="text-2xl font-semibold text-[#00FFFF]">Ce que j’ai appris</h3>
-        <ul class="list-disc list-inside space-y-2 mt-2">
-          <li>Savoir réagir face à des situations imprévues et trouver des solutions adaptées.</li>
-          <li>Travailler efficacement en équipe, et apprendre des autres.</li>
-          <li>Gérer des systèmes informatiques, tout en veillant à la sécurité et à la qualité du service.</li>
-          <li>Apporter un soin particulier à la documentation, essentielle dans le métier.</li>
-        </ul>
-        <p class="mt-4">Mais au-delà des aspects techniques, j’ai aussi appris à mieux me connaître : à rester rigoureux, à prendre du recul sur mes difficultés, et à toujours chercher à progresser.</p>
-      </div>
-    </div>
-
-    <!-- Carte Ambitions -->
-    <div class="presentation-card" onclick="openModal(this)">
-      <h3 class="text-2xl font-semibold text-[#00FFFF]">Mes ambitions</h3>
-      <p class="text-sm mt-2 opacity-80">Mon objectif professionnel à long terme</p>
-      <div class="modal-content">
-        <h3 class="text-2xl font-semibold text-[#00FFFF]">Mes ambitions</h3>
-        <p>Je souhaite poursuivre mes études jusqu’au BAC+5 pour approfondir mes compétences, notamment en développement web et en architecture logicielle. Mon objectif, c’est de devenir un professionnel polyvalent : à la fois capable de concevoir des solutions performantes, mais aussi de proposer des interfaces qui donnent envie d’être utilisées.</p>
-        <p class="mt-4">Ce que j’aime, c’est l’idée de contribuer à des projets qui ont du sens, où l’on peut voir l’impact concret de son travail et continuer à apprendre chaque jour.</p>
-      </div>
+      <div class="absolute -inset-1 rounded-3xl bg-[#00ffaa11] blur-md opacity-0 group-hover:opacity-60 transition-all duration-300"></div>
     </div>
   </div>
 </section>
 
-
-  <div id="modal" class="hidden fixed inset-0 z-50 bg-black/50 backdrop-blur-sm flex items-center justify-center overflow-y-auto py-10 px-4 transition-opacity duration-300 ease-out">
-  <div id="modal-box" class="bg-gradient-to-br from-[#0a0a0a] via-[#0f1c1d] to-[#0a0a0a] w-full max-w-3xl p-8 rounded-2xl relative text-white border border-cyan-500 shadow-2xl transform scale-95 opacity-0 transition-all duration-300 ease-out backdrop-blur-lg">
-    <button onclick="closeModal()" class="absolute top-4 right-4 text-cyan-400 text-3xl font-bold hover:scale-125 transition-transform duration-200">&times;</button>
-    <div id="modal-body" class="max-h-[90vh] overflow-y-auto space-y-6 text-[var(--white)] leading-relaxed text-lg"></div>
-  </div>
-</div>
-
 <style>
-  .presentation-card {
-    background: linear-gradient(145deg, rgba(0, 0, 0, 0.5), rgba(10, 20, 20, 0.7));
-    backdrop-filter: blur(10px);
-    border: 1px solid rgba(0, 255, 255, 0.2);
-    border-radius: 1rem;
-    padding: 1.5rem;
-    cursor: pointer;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-    box-shadow: 0 0 20px rgba(0, 255, 255, 0.1);
+  .glowing-text {
+    text-shadow:
+      0 0 5px #00ffaa,
+      0 0 10px #00ffaa66,
+      0 0 20px #00ffaa33;
   }
-  .presentation-card:hover {
-    transform: translateY(-5px) scale(1.02);
-    box-shadow: 0 10px 30px rgba(0, 255, 255, 0.2);
-    background: rgba(0, 0, 0, 0.8);
-  }
-  .modal-content {
-    display: none;
-  }
-  #modal.hidden {
-    opacity: 0;
-    pointer-events: none;
-  }
-  #modal-box.show {
-    opacity: 1;
-    transform: scale(1);
-  }
-  .custom-cyan-glow {
-  text-shadow:
-    0 0 3px #00FFFF,
-    0 0 6px #00FFFF,
-    0 0 12px #00FFFF;
-}
 
+  .animated-fade {
+    animation: fadeUp 0.8s ease-out both;
+  }
 
+  @keyframes fadeUp {
+    0% { opacity: 0; transform: translateY(20px); }
+    100% { opacity: 1; transform: translateY(0); }
+  }
 </style>
-
-<script is:inline>
-  function openModal(card) {
-    const content = card.querySelector('.modal-content').innerHTML;
-    const modal = document.getElementById('modal');
-    const box = document.getElementById('modal-box');
-
-    document.getElementById('modal-body').innerHTML = content;
-    modal.classList.remove('hidden');
-
-    setTimeout(() => box.classList.add('show'), 10);
-    document.body.style.overflow = 'hidden';
-  }
-
-  function closeModal() {
-    const modal = document.getElementById('modal');
-    const box = document.getElementById('modal-box');
-
-    box.classList.remove('show');
-    setTimeout(() => {
-      modal.classList.add('hidden');
-      document.body.style.overflow = '';
-    }, 300);
-  }
-
-  document.addEventListener('keydown', (e) => {
-    if (e.key === 'Escape') closeModal();
-  });
-</script>

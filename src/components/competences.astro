@@ -1,0 +1,186 @@
+---
+const categories = [
+  {
+    nom: "Langages",
+    competences: [
+      { nom: "Java", icon: "/svg/java.svg", desc: "POO, robustesse" },
+      { nom: "JavaScript", icon: "/svg/javascript.svg", desc: "Web dynamique" },
+      { nom: "PHP", icon: "/svg/php.svg", desc: "Back-end web" },
+      { nom: "SQL", icon: "/svg/mysql.svg", desc: "Base de données" },
+      { nom: "C", icon: "/svg/c.svg", desc: "Bas niveau" },
+    ],
+  },
+  {
+    nom: "Frameworks & Librairies",
+    competences: [
+      { nom: "Spring Boot", icon: "/svg/spring.svg", desc: "Java API REST" },
+      { nom: "Vue.js", icon: "/svg/vuejs.svg", desc: "Front-end moderne" },
+      { nom: "Express", icon: "/svg/express.svg", desc: "Node.js API" },
+      { nom: "Node.js", icon: "/svg/nodejs.svg", desc: "Serveur JS" },
+      { nom: "Astro", icon: "/svg/astro.svg", desc: "Site statique" },
+    ],
+  },
+  {
+    nom: "Web & UI",
+    competences: [
+      { nom: "HTML5", icon: "/svg/html5.svg", desc: "Structure web" },
+      { nom: "CSS3", icon: "/svg/css3.svg", desc: "Style avancé" },
+    ],
+  },
+  {
+    nom: "Outils & DevOps",
+    competences: [
+      { nom: "Git", icon: "/svg/git.svg", desc: "Versionning" },
+      { nom: "GitHub", icon: "/svg/github.svg", desc: "Collaboration" },
+      { nom: "Wireshark", icon: "/svg/wireshark.svg", desc: "Analyse réseau" },
+      { nom: "VirtualBox", icon: "/svg/virtualbox.svg", desc: "VM" },
+    ],
+  },
+  {
+    nom: "Soft Skills",
+    competences: [
+      {
+        nom: "Communication",
+        icon: "/svg/talk.svg",
+        desc: "Réunions efficaces, vulgarisation claire des sujets techniques à tout public."
+      },
+      {
+        nom: "Esprit d'équipe",
+        icon: "/svg/team.svg",
+        desc: "Travail collaboratif sur GitHub, répartition claire des tâches et entraide."
+      },
+
+      {
+        nom: "Initiative",
+        icon: "/svg/idea.svg",
+        desc: "Améliorations proposées sur projets SAE (UX, sécurité)"
+      },
+      {
+        nom: "Curiosité & apprentissage",
+        icon: "/svg/book.svg",
+        desc: "Auto-formation constante (ex: Vue, React), pour rester à jour et polyvalent."
+      },
+      {
+        nom: "Organisation",
+        icon: "/svg/org.svg",
+        desc: "Planification et priorisation (Excel, rétroplanning) sur projets SAE."
+      },
+    ],
+  },
+];
+---
+
+<section id="competences" class="snap-start py-24 px-6 text-white relative z-10">
+  <div class="max-w-7xl mx-auto text-center">
+    <h2 class="text-5xl font-extrabold text-[#00FFFF] mb-14 glow-title">Mes Compétences</h2>
+
+    <!-- Tabs -->
+    <div class="flex flex-wrap justify-center gap-4 mb-12">
+      {categories.map((cat, i) => (
+        <button class={`tab-btn px-6 py-2 rounded-full font-semibold transition duration-300 border border-#43a047-400/50 hover:bg-#43a047-400 hover:text-black ${i === 0 ? 'active' : ''}`}>
+          {cat.nom}
+        </button>
+      ))}
+    </div>
+
+    <!-- Grids -->
+    {categories.map((cat, i) => (
+      <div class={`skills-grid ${i === 0 ? 'grid-active' : 'hidden'}`}>
+        {cat.competences.map((comp, j) => (
+          <div class="skill-card animate-on-scroll" style={`animation-delay: ${j * 100}ms`}>
+            <div class="skill-icon">
+              <img src={comp.icon} alt={comp.nom} loading="lazy" />
+            </div>
+            <h4 class="text-lg font-bold text-#43a047-300 mt-4">{comp.nom}</h4>
+            <p class="text-sm text-white/70 mt-1">{comp.desc}</p>
+          </div>
+        ))}
+      </div>
+    ))}
+  </div>
+</section>
+
+<style>
+  .glow-title {
+    text-shadow: 0 0 10px #00ffff, 0 0 20px #00ffff55;
+  }
+  .tab-btn.active {
+    background: #00ffff;
+    color: #000;
+    box-shadow: 0 0 12px #00ffffaa;
+  }
+  .skills-grid {
+    display: none;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 2.5rem;
+    padding: 0 1rem;
+    transition: all 0.4s ease;
+  }
+  .skills-grid.grid-active {
+    display: grid !important;
+  }
+  .skill-card {
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid #00ffff22;
+    border-radius: 1.5rem;
+    padding: 2rem 1.2rem;
+    backdrop-filter: blur(12px) saturate(1.5);
+    box-shadow: 0 0 24px #00ffff15;
+    transition: transform 0.3s, box-shadow 0.3s;
+    transform-style: preserve-3d;
+    perspective: 1000px;
+  }
+  .skill-card:hover {
+    transform: rotateX(6deg) rotateY(-6deg) scale(1.05);
+    box-shadow: 0 12px 30px #00ffff55;
+  }
+  .skill-icon img {
+    width: 52px;
+    height: 52px;
+    transition: transform 0.4s ease;
+  }
+  .skill-card:hover .skill-icon img {
+    transform: rotate(8deg) scale(1.2);
+  }
+
+  /* Scroll animation */
+  .animate-on-scroll {
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeInUp 0.6s ease forwards;
+  }
+  @keyframes fadeInUp {
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+</style>
+
+<script is:inline>
+  document.addEventListener("DOMContentLoaded", () => {
+    const tabs = document.querySelectorAll(".tab-btn");
+    const grids = document.querySelectorAll(".skills-grid");
+
+    tabs.forEach((tab, index) => {
+      tab.addEventListener("click", () => {
+        tabs.forEach((btn, i) => btn.classList.toggle("active", i === index));
+        grids.forEach((grid, i) => {
+          grid.classList.toggle("grid-active", i === index);
+          grid.classList.toggle("hidden", i !== index);
+        });
+      });
+    });
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("animate-on-scroll-visible");
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.1 });
+
+    document.querySelectorAll(".animate-on-scroll").forEach(el => observer.observe(el));
+  });
+</script>

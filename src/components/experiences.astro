@@ -1,0 +1,80 @@
+<section id="experiences" class="relative max-w-4xl mx-auto px-6 py-24 z-10 snap-start text-white">
+    <h2 class="text-4xl md:text-5xl font-extrabold text-center text-[#FF3B3B] tracking-wide mb-14 glow-title-red">
+      Mon Expérience Pro
+    </h2>
+  
+    <div class="bg-transparent border border-[#FF3B3B55] rounded-3xl p-8 backdrop-blur-xl shadow-[0_0_25px_#FF3B3B55] max-w-3xl mx-auto">
+
+      <h3 class="text-2xl font-bold text-[#FF3B3B] mb-2">Stage – Réseaux Bureautique</h3>
+      <p class="text-sm text-white/70 mb-4 italic">FEVRIER - AVRIL 2025 • MONTREUIL (93)</p>
+  
+      <div class="flex flex-col md:flex-row gap-4 mb-6">
+        <button onclick="showExp('para1')" class="exp-btn">🧭 Découverte du monde professionnel</button>
+        <button onclick="showExp('para2')" class="exp-btn">🤝 Travail en équipe & responsabilités</button>
+      </div>
+  
+      <div id="exp-details" class="transition-all duration-300 text-white/90 text-base leading-relaxed">
+        <!-- Paragraphe dynamique ici -->
+        <p id="para1" class="exp-text hidden">
+            Mon stage chez Réseaux Bureautique m'a vraiment permis de découvrir comment ça se passe dans une vraie entreprise. Au début, j'étais un peu stressé parce que je ne savais pas à quoi m'attendre, mais très vite j'ai compris l'importance de l'adaptabilité. J'ai appris à être autonome, à gérer mes journées, et à faire des choses concrètes : installer des postes, configurer un NAS, ou encore dépanner un client directement sur site.
+
+            Ce n'était pas juste de la technique, c'était aussi comprendre comment on s'organise au quotidien, comment on communique avec ses collègues ou ses supérieurs. C'est là que j'ai vu la différence entre les projets scolaires et le monde pro : tout doit être carré, propre, documenté… et surtout fonctionnel.
+        </p>
+        <p id="para2" class="exp-text hidden">
+            Pendant ce stage, j'ai souvent bossé en binôme ou en collaboration avec des techniciens plus expérimentés. On m'a fait confiance rapidement, que ce soit pour des installations, du support client ou même des modifications sur des outils comme GLPI ou WordPress.
+
+            Je me suis senti utile, impliqué, et ça m'a motivé à bien faire. Il y avait pas mal de moments où il fallait s'adapter en urgence (genre un client qui appelle pour un problème urgent), donc j'ai aussi appris à gérer un peu la pression.
+            
+            Le fait de devoir expliquer clairement ce que je faisais, ou de poser les bonnes questions, m'a aidé à mieux communiquer. Au final, j'ai compris que même en technique, le travail en équipe est essentiel pour avancer efficacement.
+        </p>
+      </div>
+    </div>
+  </section>
+  
+  <style>
+    .glow-title-red {
+      text-shadow: 0 0 12px #FF3B3B, 0 0 22px #FF3B3B77;
+    }
+    .exp-btn {
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid #FF3B3B55;
+      padding: 0.75rem 1.5rem;
+      border-radius: 2rem;
+      color: #FF3B3B;
+      font-weight: 600;
+      transition: all 0.3s ease;
+      cursor: pointer;
+      text-align: center;
+    }
+    .exp-btn:hover {
+      background: #FF3B3B22;
+      box-shadow: 0 0 10px #FF3B3B66;
+      color: white;
+    }
+    .exp-text {
+      animation: fadeIn 0.5s ease forwards;
+    }
+    .hidden {
+      display: none;
+    }
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+        transform: translateY(10px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+  </style>
+  
+  <script is:inline>
+    function showExp(id) {
+      const paras = document.querySelectorAll(".exp-text");
+      paras.forEach((p) => p.classList.add("hidden"));
+      const target = document.getElementById(id);
+      if (target) target.classList.remove("hidden");
+    }
+  </script>
+  

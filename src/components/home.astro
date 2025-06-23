@@ -3,9 +3,9 @@ import LogoWall from "../components/logoWall.astro";
 import SkillsList from "../React/SkillsList.tsx";
 ---
 
-<section class="text-[var(--white)] mt-12 md:mt-0" id="home">
-  <div class="max-w-5xl mx-auto space-y-8 md:py-36 pb-14">
-    <div class="text-center space-y-4">
+<section class="text-[var(--white)] min-h-screen flex items-center justify-center snap-start" id="home">
+  <div class="max-w-5xl mx-auto space-y-8 flex flex-col items-center justify-center w-full">
+    <div class="text-center space-y-4 flex flex-col items-center justify-center h-full">
       <div class="flex flex-col items-center space-y-4">
         <div class="w-32 h-32 md:w-40 md:h-40 rounded-full overflow-hidden border-2 border-[var(--white-icon-tr)]">
           <img
@@ -77,12 +77,7 @@ import SkillsList from "../React/SkillsList.tsx";
       </div>
     </div>
 
-    <LogoWall />
-
-    <p class="text-md md:text-xl mx-auto mt-8 text-center text-[var(--white-icon)] subtle-glitch-glow">
-      Passionné par le développement web et la création d'expériences numériques innovantes.
-      Actuellement en 2ème année de BUT Informatique, j'apprécie particulièrement le développement frontend et j'ai un intérêt marqué pour l'automobile.
-    </p>
+    
 
     <div class="flex flex-col lg:flex-row items-center gap-8">
       <SkillsList client:load />
@@ -154,6 +149,16 @@ import SkillsList from "../React/SkillsList.tsx";
       background-position: 0% 50%;
     }
   }
+</style>
+
+<style>
+@keyframes wave {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-60px); }
+}
+.animate-wave {
+  animation: wave 6s linear infinite alternate;
+}
 </style>
 
 <script>
