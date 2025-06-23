@@ -1,0 +1,40 @@
+---
+const logos = [
+  { name: "HTML", color: "#FF6B6B" },
+  { name: "CSS", color: "#4ECDC4" },
+  { name: "Git", color: "#45B7D1" },
+  { name: "JavaScript", color: "#96E6B3" },
+  { name: "Java", color: "#FFBE0B" },
+  { name: "PHP", color: "#A78BFA" },
+  { name: "SQL", color: "#F472B6" },
+  { name: "Express", color: "#60A5FA" },
+];
+---
+
+<div class="relative w-full overflow-hidden">
+  <div class="flex space-x-4 animate-scroll">
+    {[...logos, ...logos].map((logo, index) => (
+      <div
+        class="flex-shrink-0 px-4 py-2 rounded-xl backdrop-blur-sm transition-all duration-300 hover:scale-105"
+        style={`background: linear-gradient(135deg, ${logo.color}30, ${logo.color}15); border: 1px solid ${logo.color}40`}
+      >
+        <span class="text-lg font-medium text-white/90">{logo.name}</span>
+      </div>
+    ))}
+  </div>
+</div>
+
+<style>
+  @keyframes scroll {
+    0% {
+      transform: translateX(0);
+    }
+    100% {
+      transform: translateX(-50%);
+    }
+  }
+
+  .animate-scroll {
+    animation: scroll 20s linear infinite;
+  }
+</style>
