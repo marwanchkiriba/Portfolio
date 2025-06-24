@@ -1,0 +1,82 @@
+---
+// Composant Compétences du BUT
+const competencesBUT = [
+  {
+    titre: "Réaliser un développement d'application",
+    desc: "C’est la compétence qui m’a le plus marqué depuis le début de mon BUT. J’ai appris à créer des applications de A à Z, depuis la phase d’analyse jusqu’à la mise en ligne. Sur notre projet AppChat, par exemple, on est partis d’une simple idée d’application de messagerie étudiante, pour aboutir à un vrai produit utilisable avec une interface responsive, une gestion des utilisateurs, un back-end en Node.js et une base de données structurée. J’ai codé en JavaScript, utilisé Vue.js côté front et Express côté back. Ce que j’ai surtout retenu, c’est l’importance de structurer son code, de bien nommer ses variables, de commenter ce qu’on fait… bref, de coder proprement pour les autres et pas seulement pour soi. Le développement, ce n’est pas juste écrire des lignes de code, c’est penser à long terme."
+  },
+  {
+    titre: "Optimiser des applications informatiques",
+    desc: "Une fois une application en place, on se rend vite compte que ce n’est que le début. Il faut ensuite l’améliorer, la rendre plus fluide, plus rapide, plus maintenable. Sur AppChat, j’ai été confronté à des lenteurs et à des bugs que je n’avais pas anticipés. J’ai alors appris à profiler le code, à identifier les goulots d’étranglement, à refactoriser des fonctions trop lourdes, et à mettre en cache certaines données. J’ai aussi découvert que l’optimisation passait par l’organisation : utiliser un routeur bien structuré, séparer le front du back proprement, intégrer des tests unitaires... Bref, j’ai compris qu’un bon développeur, ce n’est pas celui qui va vite, c’est celui qui rend son code durable et évolutif."
+  },
+  {
+    titre: "Administrer des systèmes et des réseaux complexes",
+    desc: "C’est pendant mon stage chez Réseaux Bureautique que j’ai vraiment mis les mains dans la technique système et réseau. J’ai installé et configuré des postes clients, déployé des NAS Synology pour des sauvegardes automatisées, et paramétré des routeurs pour optimiser les connexions réseau. J’ai même utilisé Wireshark pour analyser le trafic et comprendre pourquoi certains flux étaient ralentis. J’ai réalisé que tout ce qui est développement ne tient que si l’infrastructure derrière est solide. C’est un peu comme les fondations d’un bâtiment : invisibles, mais indispensables. Cette expérience m’a donné une vraie vision globale de l’IT, bien au-delà du code."
+  },
+  {
+    titre: "Gérer des données de l'information",
+    desc: "Dans presque tous mes projets, les bases de données ont joué un rôle central. Que ce soit avec MySQL ou PostgreSQL, j’ai appris à modéliser des schémas relationnels, à écrire des requêtes optimisées, à faire des jointures complexes, et surtout à assurer l’intégrité des données. Par exemple, sur AppChat, la structure de la base devait permettre de retrouver facilement les messages par utilisateur, mais aussi de garantir qu’un message supprimé ne casse pas le reste. J’ai aussi appris à sécuriser les accès, à gérer les erreurs, et à bien documenter les schémas. La donnée, c’est le cœur de l’application, et bien la gérer, c’est garantir la fiabilité du tout."
+  },
+  {
+    titre: "Conduire un projet",
+    desc: "Avant le BUT, je ne savais pas trop ce que voulait dire 'gérer un projet'. Maintenant, j’ai compris que ça veut dire organiser le travail, répartir les rôles, planifier les tâches, anticiper les galères, et savoir rebondir. Sur AppChat, on a dû faire face à des retards, des bugs imprévus, des changements de specs… mais on a tenu bon grâce à une bonne communication et un vrai suivi du planning. On utilisait Trello pour suivre l’avancement, GitHub pour versionner, et surtout on prenait le temps de se parler entre développeurs pour éviter les malentendus. J’ai découvert que gérer un projet, ce n’est pas juste du planning, c’est surtout de l’humain."
+  },
+  {
+    titre: "Travailler dans une équipe informatique",
+    desc: "Que ce soit en projet tutoré ou en entreprise, j’ai appris que travailler seul, ça limite, mais à plusieurs, ça fait avancer. En stage, j’ai été intégré à une petite équipe soudée où chacun avait sa spécialité. J’ai appris à écouter, à demander de l’aide, à proposer des idées. On m’a même confié des tâches critiques dès la deuxième semaine, ce qui m’a vraiment donné confiance. À l’IUT, j’ai bossé en binôme ou en groupe sur tous les projets, et chaque fois, j’ai gagné en rigueur, en adaptabilité et en patience. Savoir travailler en équipe, c’est pour moi une des compétences les plus importantes, surtout dans un métier où tout évolue vite et où l’échange est essentiel."
+  },
+];
+
+---
+
+<section id="competences-but" class="relative max-w-5xl mx-auto px-6 py-24 z-10 text-white snap-start">
+    <div class="text-center mb-16">
+      <h2 class="text-5xl font-extrabold text-[#00FFFF] glow-title">Compétences du BUT</h2>
+    </div>
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-10">
+      {competencesBUT.map((item, index) => (
+        <div class="competence-card group">
+          <h3 class="text-xl font-bold text-[#00FFFF] mb-3">{item.titre}</h3>
+          <p class="text-white/80 text-base leading-relaxed max-h-32 overflow-hidden transition-all duration-300 ease-in-out readmore" id={`desc-${index}`}>
+            {item.desc}
+          </p>
+          <button onclick={`toggleText(${index})`} class="mt-3 text-sm text-cyan-400 hover:text-cyan-300 transition">Voir plus</button>
+        </div>
+      ))}
+    </div>
+  </section>
+  
+  <style>
+    .glow-title {
+      text-shadow: 0 0 10px #00ffff, 0 0 20px #00ffff88;
+    }
+  
+    .competence-card {
+      background: rgba(0, 0, 0, 0.5);
+      border: 1px solid #00FFFF33;
+      border-radius: 1.5rem;
+      padding: 2rem 1.5rem;
+      backdrop-filter: blur(8px) saturate(1.2);
+      box-shadow: 0 0 20px #00ffff22;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+  
+    .competence-card:hover {
+      transform: scale(1.04) rotate(-1deg);
+      box-shadow: 0 0 30px #00ffff44;
+    }
+  
+    .readmore.expanded {
+      max-height: 1000px;
+    }
+  </style>
+  
+  <script is:inline>
+    function toggleText(index) {
+      const text = document.getElementById(`desc-${index}`);
+      const btn = text.nextElementSibling;
+      text.classList.toggle("expanded");
+      btn.textContent = text.classList.contains("expanded") ? "Voir moins" : "Voir plus";
+    }
+  </script>
+  

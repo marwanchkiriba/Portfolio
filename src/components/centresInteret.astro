@@ -1,0 +1,91 @@
+---
+// Composant Centres d'Intérêt
+const interets = [
+  {
+    nom: "Voitures sportives & Motorsport",
+    icon: "/svg/bmw.svg",
+    desc: "Véritable passionné de voitures de sport : des modèles allemands comme BMW M, aux hypercars modernes. J'adore tout ce qui touche à la puissance, au design agressif et à l’innovation automobile."
+  },
+  {
+    nom: "Formule 1",
+    icon: "/svg/f1.svg",
+    desc: "Je suis de près chaque saison de F1, entre stratégies d’équipe, dépassements millimétrés et technologie de pointe. Ce sport est une vraie source d’inspiration par sa rigueur et sa précision."
+  },
+  {
+    nom: "Boxe",
+    icon: "/svg/boxing.svg",
+    desc: "Un sport qui m’a appris la discipline, la persévérance et la gestion du stress. La boxe, c’est aussi un état d’esprit : celui de se relever, de garder le focus et de travailler en silence."
+  },
+  {
+    nom: "Développement Web",
+    icon: "/svg/code.svg",
+    desc: "J’aime créer des interfaces modernes et interactives. C’est un espace où je peux mixer logique, créativité et esthétisme dans un univers en constante évolution."
+  },
+];
+---
+
+<section id="centres-interet" class="relative max-w-6xl mx-auto px-6 py-24 z-10 text-white snap-start">
+  <div class="text-center mb-16">
+    <h2 class="text-5xl font-extrabold text-[#00FFFF] glow-title">Centres d’intérêt</h2>
+  </div>
+
+  <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10">
+    {interets.map((item, i) => (
+      <div class="interet-card animated-fade" style={`animation-delay: ${i * 150}ms`}>
+        <div class="icon-box">
+          <img src={item.icon} alt={item.nom} loading="lazy" />
+        </div>
+        <h3 class="text-xl font-bold text-[#00FFFF] mt-4">{item.nom}</h3>
+        <p class="text-white/80 mt-2 text-sm leading-relaxed">{item.desc}</p>
+      </div>
+    ))}
+  </div>
+</section>
+
+<style>
+  .glow-title {
+    text-shadow: 0 0 10px #00ffff, 0 0 20px #00ffff88;
+  }
+
+  .interet-card {
+    background: rgba(0, 0, 0, 0.5);
+    border: 1px solid #00FFFF33;
+    border-radius: 1.5rem;
+    padding: 2rem 1.5rem;
+    backdrop-filter: blur(10px) saturate(1.5);
+    box-shadow: 0 0 20px #00ffff22;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    opacity: 0;
+    transform: translateY(30px);
+    animation: fadeInUp 0.6s ease forwards;
+  }
+
+  .interet-card:hover {
+    transform: scale(1.05) rotate(-1deg);
+    box-shadow: 0 0 30px #00ffff44;
+  }
+
+  .icon-box {
+    width: 60px;
+    height: 60px;
+    margin: 0 auto;
+    background: rgba(0, 255, 255, 0.1);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 0 12px #00ffff33;
+  }
+
+  .icon-box img {
+    width: 36px;
+    height: 36px;
+  }
+
+  @keyframes fadeInUp {
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+</style>
