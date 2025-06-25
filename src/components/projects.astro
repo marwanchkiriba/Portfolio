@@ -16,31 +16,31 @@ interface Project {
 const projects: Project[] = [
   {
     title: "Portfolio",
-    image: moviesfordevs as ImageMetadata,
+    image: undefined,
     link: "https://github.com/marwanchkiriba",
     preview: "#",
-    status: "En développement",
+    status: "Terminé",
   },
   {
     title: "AppChat",
-    image: stockin as ImageMetadata,
+    image: undefined,
     link: "https://github.com/marwanchkiriba/AppChat",
     preview: "#",
-    status: "En développement",
+    status: "Terminé",
   },
   {
-    title: "Projet 3",
-    image: svgl as ImageMetadata,
-    link: "#",
-    preview: "#",
-    status: "À venir",
+    title: "SAE Santa-Claus",
+    image: undefined,
+    link: "https://github.com/marwanchkiriba/santa-claus",
+    preview: "https://github.com/marwanchkiriba/santa-claus",
+    status: "Projet Python / Optimisation",
   },
   {
-    title: "Projet 4",
-    image: tron as ImageMetadata,
-    link: "#",
-    preview: "#",
-    status: "À venir",
+    title: "Calculatrice JAVA",
+    image: undefined,
+    link: "https://github.com/marwanchkiriba/Calculatrice",
+    preview: "https://github.com/marwanchkiriba/Calculatrice",
+    status: "Projet Java / Binôme",
   },
 ];
 ---
@@ -64,11 +64,41 @@ const projects: Project[] = [
               class="block"
             >
               <div class="rounded-2xl overflow-hidden shadow-lg hover:shadow-xl transition-shadow duration-300 mb-4">
-                <Image
-                  src={project.image}
-                  alt={project.title}
-                  class="w-full h-48 md:h-72 object-cover group-hover:scale-105 transition-transform duration-300"
-                />
+                {project.title === "AppChat" ? (
+                  <img
+                    src="/svg/AppChat.png"
+                    alt="AppChat"
+                    class="w-full h-48 md:h-72 object-cover group-hover:scale-105 transition-transform duration-300"
+                    loading="lazy"
+                  />
+                ) : project.title === "Portfolio" ? (
+                  <img
+                    src="/svg/portfolio.png"
+                    alt="Portfolio"
+                    class="w-full h-48 md:h-72 object-cover group-hover:scale-105 transition-transform duration-300"
+                    loading="lazy"
+                  />
+                ) : project.title === "Calculatrice JAVA" ? (
+                  <img
+                    src="/svg/calculatrice.png"
+                    alt="Calculatrice JAVA"
+                    class="w-full h-48 md:h-72 object-cover group-hover:scale-105 transition-transform duration-300"
+                    loading="lazy"
+                  />
+                ) : project.title === "SAE Santa-Claus" ? (
+                  <img
+                    src="/svg/santa-claus.png"
+                    alt="SAE Santa-Claus"
+                    class="w-full h-48 md:h-72 object-cover group-hover:scale-105 transition-transform duration-300"
+                    loading="lazy"
+                  />
+                ) : (
+                  <Image
+                    src={project.image}
+                    alt={project.title}
+                    class="w-full h-48 md:h-72 object-cover group-hover:scale-105 transition-transform duration-300"
+                  />
+                )}
               </div>
               <div class="flex items-center px-3">
                 <div class="flex-grow">
