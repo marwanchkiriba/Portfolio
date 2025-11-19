@@ -12,9 +12,10 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-  title: "Abhoy Sarkar - Software Engineer",
+  title:
+    "Abhoy Sarkar — Full-Stack Developer (Typescript, Go, Next.js, Node.js, Postgresql)",
   description:
-    "Full-Stack Developer skilled in Go, Next.js, React, DevOps, PostgreSQL, Prisma, and cloud platforms. Explore my projects including MindSketch, WriteX, and Expense Tracker.",
+    "Abhoy Sarkar is a Full-Stack Developer specializing in Go, Next.js, Prisma and PostgreSQL. Explore practical projects, code samples, and DevOps tips for building scalable web applications.",
   keywords: [
     "Full Stack Developer",
     "Go Developer",
@@ -50,9 +51,10 @@ export const metadata: Metadata = {
     locale: "en_US",
     url: "https://www.abhoy.xyz",
     siteName: "Abhoy Sarkar Portfolio",
-    title: "Abhoy Sarkar - Full-Stack Developer",
+    title:
+      "Abhoy Sarkar — Full-Stack Developer (Typescript, Go, Next.js, Node.js, Postgresql)",
     description:
-      "Full-Stack Developer experienced in Go, Next.js, Node.js, DevOps, PostgreSQL, Prisma, and cloud platforms.",
+      "Explore projects and engineering notes by Abhoy Sarkar — Full-Stack Developer focused on Go, Next.js, Prisma and PostgreSQL.",
     images: [
       {
         url: "/og-image.jpg",
@@ -64,9 +66,10 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Abhoy Sarkar - Full-Stack Developer",
+    title:
+      "Abhoy Sarkar — Full-Stack Developer (Typescript, Go, Next.js, Node.js, Postgresql)",
     description:
-      "Software Engineer specializing in Go, Next.js, DevOps, and Cloud Infrastructure.",
+      "Full-Stack Developer building production-ready web apps with Go, Next.js, Prisma and PostgreSQL. See projects, notes and deployment tips.",
     images: ["/og-image.jpg"],
   },
   robots: {
@@ -98,7 +101,6 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-  // Structured data for SEO
   const organizationSchema = generateStructuredData("organization", {
     name: "Abhoy Sarkar",
     url: "https://www.abhoy.xyz",
