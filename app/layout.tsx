@@ -1,0 +1,125 @@
+import type React from "react";
+import type { Metadata } from "next";
+import { Inter } from "next/font/google";
+import "./globals.css";
+import { generateStructuredData } from "@/lib/seo";
+
+const inter = Inter({
+  subsets: ["latin"],
+  display: "swap",
+  variable: "--font-inter",
+});
+
+export const metadata: Metadata = {
+  title: "Abhoy Sarkar - Software Engineer",
+  description:
+    "Full-Stack Developer skilled in Go, Next.js, React, DevOps, PostgreSQL, Prisma, and cloud platforms. Explore my projects including MindSketch, WriteX, and Expense Tracker.",
+  keywords: [
+    "Full Stack Developer",
+    "Go Developer",
+    "Next.js Developer",
+    "React Developer",
+    "Golang",
+    "Node.js",
+    "DevOps",
+    "Prisma",
+    "PostgreSQL",
+    "React Native",
+    "Software Engineer",
+  ],
+  authors: [
+    {
+      name: "Abhoy Sarkar",
+      url: "https://abhoy.xyz",
+    },
+  ],
+  creator: "Abhoy Sarkar",
+  publisher: "Abhoy Sarkar",
+  formatDetection: {
+    email: true,
+    address: false,
+    telephone: false,
+  },
+  metadataBase: new URL("https://www.abhoy.xyz"),
+  alternates: {
+    canonical: "https://www.abhoy.xyz",
+  },
+  openGraph: {
+    type: "website",
+    locale: "en_US",
+    url: "https://www.abhoy.xyz",
+    siteName: "Abhoy Sarkar Portfolio",
+    title: "Abhoy Sarkar - Full-Stack Developer",
+    description:
+      "Full-Stack Developer experienced in Go, Next.js, Node.js, DevOps, PostgreSQL, Prisma, and cloud platforms.",
+    images: [
+      {
+        url: "/og-image.jpg",
+        width: 1200,
+        height: 630,
+        alt: "Abhoy Sarkar Portfolio",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Abhoy Sarkar - Full-Stack Developer",
+    description:
+      "Software Engineer specializing in Go, Next.js, DevOps, and Cloud Infrastructure.",
+    images: ["/og-image.jpg"],
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-snippet": -1,
+      "max-image-preview": "large",
+      "max-video-preview": -1,
+    },
+  },
+};
+
+export const viewport = {
+  width: "device-width",
+  initialScale: 1,
+  maximumScale: 5,
+  userScalable: true,
+  themeColor: [
+    { media: "(prefers-color-scheme: light)", color: "#ffffff" },
+    { media: "(prefers-color-scheme: dark)", color: "#0a0a0a" },
+  ],
+};
+
+export default function RootLayout({
+  children,
+}: Readonly<{
+  children: React.ReactNode;
+}>) {
+  // Structured data for SEO
+  const organizationSchema = generateStructuredData("organization", {
+    name: "Abhoy Sarkar",
+    url: "https://www.abhoy.xyz",
+    email: "sarkar.ab07@gmail.com",
+    sameAs: [
+      "https://github.com/abhoy21",
+      "https://in.linkedin.com/in/abhoy-sarkar",
+      "https://www.youtube.com/shorts/nNH_S0kq3Sw?si=ezWg0XDpm-THAzJa",
+    ],
+  });
+
+  return (
+    <html lang="en" className={`${inter.variable}`}>
+      <head>
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify(organizationSchema),
+          }}
+        />
+      </head>
+      <body className="font-sans antialiased">{children}</body>
+    </html>
+  );
+}
