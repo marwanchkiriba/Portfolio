@@ -1,44 +1,61 @@
 # Minimalist Portfolio Website
 
-A clean, modern portfolio website built with Next.js and Tailwind CSS, featuring smooth animations and dark/light theme support.
+A clean, modern portfolio built with Next.js and Tailwind CSS. It includes dark/light theme support, responsive layouts, and a small, composable component library under `components/`.
 
 ## ✨ Features
 
-- **Minimalist Design** - Clean typography with Geist font and strategic use of whitespace
-- **Responsive Layout** - Mobile-first design that works on all devices
-- **Theme Toggle** - Seamless dark/light mode switching
-- **Smooth Animations** - Subtle scroll-triggered animations and hover effects
-- **Modern Stack** - Built with Next.js 15, TypeScript, and Tailwind CSS
+- Minimalist design with clean typography and focused whitespace
+- Responsive layout — mobile-first and accessible
+- Theme toggle (dark / light) supported via `components/theme-provider.tsx` and `components/theme-toggle.tsx`
+- Smooth, subtle animations and hover effects
+- Built with TypeScript and Tailwind CSS
 
 ## 🚀 Built With
 
-- [Next.js](https://nextjs.org/) - React framework
-- [TypeScript](https://www.typescriptlang.org/) - Type safety
-- [Tailwind CSS](https://tailwindcss.com/) - Styling
-- [v0.dev](https://v0.dev/) - AI-powered development
+- [Next.js](https://nextjs.org/) (app router)
+- [TypeScript](https://www.typescriptlang.org/)
+- [Tailwind CSS](https://tailwindcss.com/)
 
 ## 📦 Getting Started
 
-\`\`\`bash
+This project includes a lockfile for pnpm — recommended for consistent installs.
+
+```bash
 # Clone the repository
-git clone https://github.com/felixmacaspac/v0-minimalist-portfolio.git
+git clone https://github.com/abhoy21/portfolio.git
 
-# Install dependencies
-npm install
+# Install dependencies (uses pnpm)
+pnpm install
 
-# Run development server
-npm run dev
-\`\`\`
+# Run the development server
+pnpm dev
+```
 
-Open [http://localhost:3000](http://localhost:3000) to view the portfolio.
+Open http://localhost:3000 to view the portfolio.
+
+## 📁 Project structure (high level)
+
+- `app/` — Next.js app routes and pages (top-level pages are in `app/page.tsx`, `app/blog`, `app/projects`)
+- `components/` — shared UI and feature components (see `components/ui/` for primitive UI pieces)
+- `components/theme-provider.tsx`, `components/theme-toggle.tsx` — theme handling and toggle UI
+- `lib/` — small helpers and content data (`lib/data.ts`, `lib/parse.ts`, `lib/seo.ts`, `lib/utils.ts`)
+- `styles/` — global styles (`styles/globals.css` and `app/globals.css`)
 
 ## 🎨 Customization
 
-The portfolio is designed to be easily customizable:
+The project is intentionally small and easy to tweak:
 
-- Update personal information in `app/page.tsx`
-- Modify colors and styling in `app/globals.css`
-- Add or remove sections as needed
+- Update your personal info / homepage content in `app/page.tsx`
+- Add blog posts under `app/blog/[slug]/page.tsx` and data in `lib/data.ts` (or wire to your CMS)
+- Add or edit project pages in `app/projects/[slug]/page.tsx`
+- Change global styles in `app/globals.css` or `styles/globals.css`
+- Modify or extend UI primitives in `components/ui/` (buttons, cards, layouts)
+
+## 🧩 Developer notes
+
+- Uses the Next.js app router — pages live in `app/`.
+- Theme state is provided by `components/theme-provider.tsx`; toggle component is `components/theme-toggle.tsx`.
+- Small helper hooks are available in `hooks/` (for example `hooks/use-toast.ts` and `hooks/use-mobile.ts`).
 
 ## 📄 License
 
@@ -46,4 +63,4 @@ Open source and available under the [MIT License](LICENSE).
 
 ---
 
-**Built with ❤️ using [v0.dev](https://v0.dev) by Felix Macaspac**
+

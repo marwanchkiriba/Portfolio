@@ -1,3 +1,4 @@
+import { GoogleAnalytics } from "@next/third-parties/google";
 import type React from "react";
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
@@ -119,6 +120,7 @@ export default function RootLayout({
           }}
         />
       </head>
+      <GoogleAnalytics gaId={process.env.NEXT_PUBLIC_GA_ID!} />
       <body className="font-sans antialiased">{children}</body>
     </html>
   );
