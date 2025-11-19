@@ -1,0 +1,11 @@
+# robots.txt for the portfolio site
+# Update the Sitemap URL and Host to your production domain (e.g. "https://example.com").
+
+User-agent: *
+Disallow: /api/
+Disallow: /_next/
+Allow: /
+
+# Sitemap (replace with your production domain)
+Sitemap: https://www.abhoy.xyz/sitemap.xml
+# Host: https://www.abhoy.xyz
