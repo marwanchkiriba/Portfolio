@@ -57,7 +57,7 @@ export default function Home() {
   };
 
   const JobItem = ({ job, index }: { job: any; index: number }) => {
-    const [open, setOpen] = useState(true);
+    const [open, setOpen] = useState(false);
 
     return (
       <div
