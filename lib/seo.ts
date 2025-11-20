@@ -62,7 +62,7 @@ export function generateBlogMetadata(post: any) {
 
 export function generateStructuredData(
   type: "project" | "blog" | "organization",
-  data: any
+  data: any,
 ) {
   const baseUrl =
     process.env.NEXT_PUBLIC_BASE_URL || "https://felixmacaspac.com";

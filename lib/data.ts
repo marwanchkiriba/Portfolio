@@ -1336,4 +1336,300 @@ console.log('Query sent, waiting for results...');`,
       },
     ],
   },
+  {
+    id: "6",
+    slug: "javascript-console-logging-essentials-guide",
+    title:
+      "JavaScript Console Logging Essentials: A Complete Guide to Debugging Like a Pro",
+    excerpt:
+      "A deep dive into console.log(), console.warn(), console.error(), console.table(), console.time(), console.group(), and other essential JavaScript console utilities that every developer should master.",
+    date: "June 2025",
+    readTime: "14 min",
+    tags: [
+      "javascript",
+      "debugging",
+      "web-development",
+      "console",
+      "productivity",
+    ],
+    featured: true,
+
+    content: [
+      {
+        type: "paragraph",
+        content:
+          "If you're a JavaScript developer, whether you're building a fresh project, fixing a tricky bug, or preparing for an interview, the console is your best friend. Most of us rely heavily on `console.log()`, but the console API is far richer than that. Knowing how to use all the logging tools smartly can help you debug faster, understand complex data structures better, and impress technical interviewers.",
+      },
+      {
+        type: "paragraph",
+        content:
+          "In this complete guide, we’ll explore all the essential console methods: `console.log()`, `console.info()`, `console.warn()`, `console.error()`, `console.debug()`, `console.trace()`, `console.table()`, timers with `console.time()`, groups with `console.group()`, counters with `console.count()`, and even how `console.clear()` works. By the end, you’ll be logging like a pro.",
+      },
+
+      {
+        type: "heading",
+        level: 2,
+        content: "Why Console Logging Still Matters in 2025",
+      },
+      {
+        type: "paragraph",
+        content:
+          "Even with advanced debugging tools in Chrome DevTools, VS Code, and various profiling utilities, console logging remains one of the fastest and most reliable ways to understand what your code is doing. It’s simple, quick, and always available, whether you’re debugging a massive React app, a backend Node.js service, or an experimental script.",
+      },
+
+      {
+        type: "heading",
+        level: 2,
+        content: "1. console.log(): The Classic Debugging Tool",
+      },
+      {
+        type: "paragraph",
+        content:
+          "`console.log()` is the most widely used console method, helpful for printing messages, variables, and objects.",
+      },
+      {
+        type: "code",
+        language: "js",
+        content: `console.log("User logged in:", user);`,
+      },
+      {
+        type: "paragraph",
+        content:
+          "However, many developers don’t know that `console.log()` also supports string formatting similar to printf.",
+      },
+      {
+        type: "code",
+        language: "js",
+        content: `console.log("Hello %s, your score is %d", "Aman", 95);`,
+      },
+
+      {
+        type: "heading",
+        level: 2,
+        content: "2. console.info(): Log Informational Messages",
+      },
+      {
+        type: "paragraph",
+        content:
+          "`console.info()` works like `console.log()` but is semantically used for informational messages.",
+      },
+      {
+        type: "code",
+        language: "js",
+        content: `console.info("Server started on port 8080");`,
+      },
+
+      {
+        type: "heading",
+        level: 2,
+        content: "3. console.warn(): Highlight Non-Critical Issues",
+      },
+      {
+        type: "paragraph",
+        content:
+          "`console.warn()` is ideal for warnings that don’t break the app but require attention, deprecated functions, slow operations, or unexpected inputs.",
+      },
+      {
+        type: "code",
+        language: "js",
+        content: `console.warn("Password strength is weak");`,
+      },
+
+      {
+        type: "heading",
+        level: 2,
+        content: "4. console.error(): Show Errors Clearly",
+      },
+      {
+        type: "paragraph",
+        content:
+          "When something goes wrong, `console.error()` prints messages in red with a stack trace in most browsers. Use it to highlight actual failures.",
+      },
+      {
+        type: "code",
+        language: "js",
+        content: `console.error("Failed to fetch data:", error);`,
+      },
+
+      {
+        type: "heading",
+        level: 2,
+        content: "5. console.debug(): Debugging in Development Mode",
+      },
+      {
+        type: "paragraph",
+        content:
+          "`console.debug()` is similar to log but may be hidden in production console settings. It’s good for low-priority debug messages.",
+      },
+      {
+        type: "code",
+        language: "js",
+        content: `console.debug("Rendered footer component");`,
+      },
+
+      {
+        type: "heading",
+        level: 2,
+        content: "6. console.trace(): Print the Call Stack Instantly",
+      },
+      {
+        type: "paragraph",
+        content:
+          "`console.trace()` prints the function call stack leading up to that point, super useful for locating unexpectedly triggered functions.",
+      },
+      {
+        type: "code",
+        language: "js",
+        content: `function test() {
+  console.trace("Where am I being called from?");
+}
+test();`,
+      },
+
+      {
+        type: "heading",
+        level: 2,
+        content: "7. console.table(): Visualize Arrays and Objects Like a Pro",
+      },
+      {
+        type: "paragraph",
+        content:
+          "`console.table()` renders arrays or objects in a neat table format. This is extremely useful for debugging large datasets or API responses.",
+      },
+      {
+        type: "code",
+        language: "js",
+        content: `console.table([
+  { id: 1, name: "Aman", score: 91 },
+  { id: 2, name: "Riya", score: 87 }
+]);`,
+      },
+
+      {
+        type: "heading",
+        level: 2,
+        content:
+          "8. console.count() and console.countReset(): Count Execution Frequency",
+      },
+      {
+        type: "paragraph",
+        content:
+          "`console.count()` shows how many times a label has been executed. Great for tracking loops or function calls.",
+      },
+      {
+        type: "code",
+        language: "js",
+        content: `function greet() {
+  console.count("greet called");
+}
+greet();
+greet();
+console.countReset("greet called");`,
+      },
+
+      {
+        type: "heading",
+        level: 2,
+        content:
+          "9. console.time(), console.timeEnd(), console.timeLog(): Measure Performance",
+      },
+      {
+        type: "paragraph",
+        content:
+          "These methods let you track how long operations take, useful when optimizing performance or measuring slow API calls.",
+      },
+      {
+        type: "code",
+        language: "js",
+        content: `console.time("db-query");
+await fetchData();
+console.timeLog("db-query");
+console.timeEnd("db-query");`,
+      },
+
+      {
+        type: "heading",
+        level: 2,
+        content:
+          "10. console.group() and console.groupEnd(): Organize Logs for Clarity",
+      },
+      {
+        type: "paragraph",
+        content:
+          "With nested operations, logs can get messy. `console.group()` lets you visually group related logs, making debugging cleaner.",
+      },
+      {
+        type: "code",
+        language: "js",
+        content: `console.group("User Info");
+console.log("Name:", "Aman");
+console.log("Role:", "Admin");
+console.groupEnd();`,
+      },
+
+      {
+        type: "heading",
+        level: 2,
+        content: "11. console.clear(): Clean the Screen",
+      },
+      {
+        type: "paragraph",
+        content:
+          "`console.clear()` refreshes the console, useful during repeated debugging cycles. Some browsers show a confirmation message.",
+      },
+      {
+        type: "code",
+        language: "js",
+        content: `console.clear();`,
+      },
+
+      {
+        type: "heading",
+        level: 2,
+        content: "Bonus: Styling Logs for Better Visibility",
+      },
+      {
+        type: "paragraph",
+        content:
+          "Did you know you can style console logs using CSS? This is very useful for highlighting logs in large applications.",
+      },
+      {
+        type: "code",
+        language: "js",
+        content: `console.log("%cSuccess!", "color: green; font-weight: bold;");`,
+      },
+
+      {
+        type: "heading",
+        level: 2,
+        content: "Real World Tips for Debugging with Console Logs",
+      },
+      {
+        type: "list",
+        items: [
+          "Use console groups for complex workflows.",
+          "Use console.table() for API results.",
+          "Avoid leaving console.log() in production code.",
+          "Use console.time() to benchmark expensive operations.",
+          "Prefer console.warn() and console.error() for proper log severity.",
+        ],
+      },
+
+      {
+        type: "heading",
+        level: 2,
+        content: "Conclusion",
+      },
+      {
+        type: "paragraph",
+        content:
+          "Mastering JavaScript console methods isn’t just about logging values. It’s about improving your debugging efficiency, writing cleaner code, and communicating intent clearly. These console techniques are used every single day by senior developers, and understanding them deeply will make you a stronger engineer, whether you're working on frontend, backend, or full-stack projects.",
+      },
+      {
+        type: "paragraph",
+        content:
+          "The next time you debug an issue, try exploring beyond `console.log()`. You might be surprised at how much time you save and how professional your workflow becomes.",
+      },
+    ],
+  },
 ];

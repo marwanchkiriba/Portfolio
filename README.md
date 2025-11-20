@@ -62,5 +62,3 @@ The project is intentionally small and easy to tweak:
 Open source and available under the [MIT License](LICENSE).
 
 ---
-
-

@@ -195,7 +195,7 @@ export default function ProjectPage({
                           <div className="h-px w-full bg-border/50 my-10"></div>
                         )}
                       </div>
-                    )
+                    ),
                   )}
                 </div>
               </div>

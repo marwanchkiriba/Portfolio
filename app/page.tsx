@@ -42,7 +42,7 @@ export default function Home() {
           }
         });
       },
-      { threshold: 0.3, rootMargin: "0px 0px -20% 0px" }
+      { threshold: 0.3, rootMargin: "0px 0px -20% 0px" },
     );
 
     sectionsRef.current.forEach((section) => {
@@ -149,7 +149,7 @@ export default function Home() {
                   onMouseLeave={() => setHoveredSection(null)}
                 />
               </div>
-            )
+            ),
           )}
         </div>
       </nav>
