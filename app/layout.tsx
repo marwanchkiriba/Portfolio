@@ -122,7 +122,7 @@ export default function RootLayout({
           }}
         />
       </head>
-      {/* <GoogleAnalytics gaId={process.env.NEXT_PUBLIC_GA_ID!} /> */}
+      <GoogleAnalytics gaId={process.env.NEXT_PUBLIC_GA_ID!} />
       <body className="font-sans antialiased">{children}</body>
     </html>
   );
