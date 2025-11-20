@@ -1,10 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!--
-  SEO-friendly sitemap for https://www.abhoy.xyz
-  - Includes explicit <lastmod> timestamps so search engines can prioritize recrawls
-  - Reasonable <changefreq> and <priority> values per page type
-  - Consider generating this dynamically from content (Next.js route) if pages change often
--->
+<?xml-stylesheet type="text/xsl" href="/sitemap.xsl"?>
+
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <!-- Core pages -->
   <url>
@@ -79,5 +75,4 @@
     <priority>0.80</priority>
   </url>
 
-  <!-- Tip: add other pages or generate programmatically for complete coverage -->
 </urlset>
