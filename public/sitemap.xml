@@ -82,4 +82,11 @@
     <priority>0.80</priority>
   </url>
 
+  <url>
+    <loc>https://www.abhoy.xyz/blog/javascript-console-logging-essentials-guide</loc>
+    <lastmod>2025-05-01T00:00:00+00:00</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.80</priority>
+  </url>
+
 </urlset>
