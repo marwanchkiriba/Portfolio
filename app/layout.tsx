@@ -13,9 +13,9 @@ const inter = Inter({
 
 export const metadata: Metadata = {
   title:
-    "Abhoy Sarkar — Full-Stack Developer (Typescript, Go, Next.js, Node.js, Postgresql)",
+    "Abhoy Sarkar — Software Developer (Typescript, Go, Next.js, Node.js, Postgresql)",
   description:
-    "Abhoy Sarkar is a Full-Stack Developer specializing in Go, Next.js, Prisma and PostgreSQL. Explore practical projects, code samples, and DevOps tips for building scalable web applications.",
+    "Abhoy Sarkar is a Software Developer specializing in Go, Next.js, Prisma and PostgreSQL. Explore practical projects, code samples, and DevOps tips for building scalable web applications.",
   keywords: [
     "Full Stack Developer",
     "Go Developer",
@@ -52,9 +52,9 @@ export const metadata: Metadata = {
     url: "https://www.abhoy.xyz",
     siteName: "Abhoy Sarkar Portfolio",
     title:
-      "Abhoy Sarkar — Full-Stack Developer (Typescript, Go, Next.js, Node.js, Postgresql)",
+      "Abhoy Sarkar — Software Developer (Typescript, Go, Next.js, Node.js, Postgresql)",
     description:
-      "Explore projects and engineering notes by Abhoy Sarkar — Full-Stack Developer focused on Go, Next.js, Prisma and PostgreSQL.",
+      "Explore projects and engineering notes by Abhoy Sarkar — Software Developer focused on Go, Next.js, Prisma and PostgreSQL.",
     images: [
       {
         url: "/og-image.jpg",
@@ -67,9 +67,9 @@ export const metadata: Metadata = {
   twitter: {
     card: "summary_large_image",
     title:
-      "Abhoy Sarkar — Full-Stack Developer (Typescript, Go, Next.js, Node.js, Postgresql)",
+      "Abhoy Sarkar — Software Developer (Typescript, Go, Next.js, Node.js, Postgresql)",
     description:
-      "Full-Stack Developer building production-ready web apps with Go, Next.js, Prisma and PostgreSQL. See projects, notes and deployment tips.",
+      "Software Developer building production-ready web apps with Go, Next.js, Prisma and PostgreSQL. See projects, notes and deployment tips.",
     images: ["/og-image.jpg"],
   },
   robots: {

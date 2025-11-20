@@ -65,7 +65,7 @@ export default function Home() {
         className="group grid lg:grid-cols-12 gap-4 sm:gap-8 py-6 sm:py-8 border-b border-border/50 hover:border-border transition-colors duration-500"
       >
         <div className="lg:col-span-2">
-          <div className="text-xl sm:text-2xl font-light text-muted-foreground group-hover:text-foreground transition-colors duration-500">
+          <div className="text-xl sm:text-2xl font-medium text-muted-foreground group-hover:text-foreground transition-colors duration-500">
             {job.year}
           </div>
         </div>
@@ -73,7 +73,7 @@ export default function Home() {
         <div className="lg:col-span-7 space-y-3">
           <div>
             <h3 className="text-lg sm:text-xl font-medium">{job.role}</h3>
-            <div className="text-muted-foreground font-light leading-tight">
+            <div className="text-muted-foreground font-medium leading-tight">
               {job.company}
             </div>
             <div className="flex items-center gap-2 mt-2">
@@ -157,10 +157,10 @@ export default function Home() {
       <main className="max-w-4xl mx-auto px-6 sm:px-8 lg:px-16">
         <header
           id="intro"
-          ref={(el) => {
+          ref={(el: HTMLElement | null) => {
             sectionsRef.current[0] = el;
           }}
-          className="min-h-screen flex items-center opacity-0"
+          className="min-h-screen flex items-center"
         >
           <div className="grid lg:grid-cols-5 gap-12 sm:gap-16 w-full">
             <div className="lg:col-span-3 space-y-6 sm:space-y-8">
@@ -168,7 +168,7 @@ export default function Home() {
                 <div className="text-sm text-muted-foreground font-mono tracking-wider">
                   SOFTWARE DEVELOPER / {new Date().getFullYear()}
                 </div>
-                <h1 className="text-5xl sm:text-6xl lg:text-7xl font-light tracking-tight">
+                <h1 className="text-5xl sm:text-6xl lg:text-7xl font-medium tracking-tight">
                   Abhoy <span className="text-muted-foreground">Sarkar</span>
                 </h1>
               </div>
@@ -289,14 +289,16 @@ export default function Home() {
 
         <section
           id="work"
-          ref={(el) => {
+          ref={(el: HTMLElement | null) => {
             sectionsRef.current[1] = el;
           }}
-          className="min-h-screen py-20 sm:py-32 opacity-0"
+          className="min-h-screen py-20 sm:py-32"
         >
           <div className="space-y-12 sm:space-y-16">
             <div className="flex flex-col sm:flex-row sm:items-end sm:justify-between gap-4">
-              <h2 className="text-3xl sm:text-4xl font-light">Selected Work</h2>
+              <h2 className="text-3xl sm:text-4xl font-medium">
+                Selected Work
+              </h2>
               <div className="text-sm text-muted-foreground font-mono">
                 2024 - {new Date().getFullYear()}
               </div>
@@ -347,14 +349,14 @@ export default function Home() {
 
         <section
           id="projects"
-          ref={(el) => {
+          ref={(el: HTMLElement | null) => {
             sectionsRef.current[2] = el;
           }}
           className="min-h-screen py-20 sm:py-32 lg:opacity-15"
         >
           <div className="space-y-12 sm:space-y-16">
             <div className="flex flex-col sm:flex-row sm:items-end sm:justify-between gap-4">
-              <h2 className="text-3xl sm:text-4xl font-light">
+              <h2 className="text-3xl sm:text-4xl font-medium">
                 Featured Projects
               </h2>
               <div className="text-sm text-muted-foreground font-mono">
@@ -483,13 +485,15 @@ export default function Home() {
 
         <section
           id="thoughts"
-          ref={(el) => {
+          ref={(el: HTMLElement | null) => {
             sectionsRef.current[3] = el;
           }}
           className="min-h-screen py-20 sm:py-32 lg:opacity-15"
         >
           <div className="space-y-12 sm:space-y-16">
-            <h2 className="text-3xl sm:text-4xl font-light">Recent Thoughts</h2>
+            <h2 className="text-3xl sm:text-4xl font-medium">
+              Recent Thoughts
+            </h2>
 
             <div className="grid gap-6 sm:gap-8 lg:grid-cols-2">
               {[
@@ -588,14 +592,16 @@ export default function Home() {
 
         <section
           id="connect"
-          ref={(el) => {
+          ref={(el: HTMLElement | null) => {
             sectionsRef.current[4] = el;
           }}
-          className="py-20 sm:py-32 opacity-0"
+          className="py-20 sm:py-32"
         >
           <div className="grid lg:grid-cols-2 gap-12 sm:gap-16">
             <div className="space-y-6 sm:space-y-8">
-              <h2 className="text-3xl sm:text-4xl font-light">Let's Connect</h2>
+              <h2 className="text-3xl sm:text-4xl font-medium">
+                Let's Connect
+              </h2>
 
               <div className="space-y-6">
                 <p className="text-lg sm:text-xl text-muted-foreground leading-relaxed">
@@ -719,22 +725,6 @@ export default function Home() {
                     <path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z" />
                   </svg>
                 )}
-              </button>
-
-              <button className="group p-3 rounded-lg border border-border hover:border-muted-foreground/50 transition-all duration-300">
-                <svg
-                  className="w-4 h-4 text-muted-foreground group-hover:text-foreground transition-all duration-300"
-                  fill="none"
-                  stroke="currentColor"
-                  viewBox="0 0 24 24"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth={2}
-                    d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"
-                  />
-                </svg>
               </button>
             </div>
           </div>
