@@ -76,7 +76,7 @@ export default function Home() {
             <div className="text-muted-foreground font-medium leading-tight">
               {job.company}
             </div>
-            <div className="flex items-center gap-2 mt-2">
+            <div className="flex flex-wrap items-center gap-2 mt-2">
               {job.tech.map((tech: string) => (
                 <span
                   key={tech}
