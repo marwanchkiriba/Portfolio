@@ -83,6 +83,8 @@ export default function BlogPostPage({
                   <span>{post.date}</span>
                   <span className="hidden sm:block">•</span>
                   <span>{post.readTime} read</span>
+                  <span className="hidden sm:block">•</span>
+                  <span>Abhoy Sarkar</span>
                 </div>
               </div>
             </div>

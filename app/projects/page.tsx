@@ -42,7 +42,7 @@ export default function ProjectsPage() {
             <div className="space-y-8 sm:space-y-12">
               {projects.map((project) => (
                 <Link key={project.slug} href={`/projects/${project.slug}`}>
-                  <article className="group p-6 my-6 sm:p-8 border border-border rounded-lg hover:border-muted-foreground/50 hover:shadow-lg transition-all duration-500 cursor-pointer">
+                  <article className="group p-6 my-6 border-b border-border rounded-lg hover:border-muted-foreground/50 hover:shadow-lg transition-all duration-500 cursor-pointer">
                     <div className="space-y-4">
                       <div className="flex items-start justify-between gap-4">
                         <div className="space-y-2 flex-1">
@@ -76,7 +76,7 @@ export default function ProjectsPage() {
                         {project.tech.map((tech) => (
                           <span
                             key={tech}
-                            className="px-3 py-1 text-xs bg-accent border-t border-border rounded-md text-muted-foreground group-hover:border-muted-foreground/50 transition-colors duration-300"
+                            className="px-3 py-1 text-xs bg-accent/45 backdrop-blur-lg border border-dashed border-border rounded-lg hover:border-muted-foreground/50 transition-colors duration-300"
                           >
                             {tech}
                           </span>

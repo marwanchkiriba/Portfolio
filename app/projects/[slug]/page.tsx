@@ -91,7 +91,7 @@ export default function ProjectPage({
                   {project.link && (
                     <Link
                       href={project.link}
-                      className="inline-flex flex-row-reverse items-center gap-2 px-6 py-3 border border-muted-foreground/30 rounded-lg hover:border-muted-foreground/50 transition-colors duration-300"
+                      className="bg-foreground text-background inline-flex items-center gap-2 px-6 py-3 border border-muted-foreground/30 rounded-lg hover:border-muted-foreground/50 transition-colors duration-300"
                     >
                       Live Project
                       <svg
@@ -114,7 +114,7 @@ export default function ProjectPage({
                     <Link
                       href={project.github}
                       target="_blank"
-                      className="inline-flex flex-row-reverse items-center gap-2 px-6 py-3 border border-muted-foreground/30 rounded-lg hover:border-muted-foreground/50 transition-colors duration-300"
+                      className="inline-flex bg-accent/45 backdrop-blur-lg items-center gap-2 px-6 py-3 border border-muted-foreground/30 rounded-lg hover:border-muted-foreground/50 transition-colors duration-300"
                     >
                       Source Code
                       <Github className="w-4 h-4" />
@@ -128,7 +128,7 @@ export default function ProjectPage({
                     {project.tech.map((tech) => (
                       <span
                         key={tech}
-                        className="px-4 py-2 border border-border rounded-xl text-sm text-muted-foreground hover:border-muted-foreground/50 transition-colors duration-300"
+                        className="px-3 py-1 text-xs bg-accent/45 backdrop-blur-lg border border-dashed border-border rounded-lg hover:border-muted-foreground/50 transition-colors duration-300"
                       >
                         {tech}
                       </span>
@@ -195,7 +195,7 @@ export default function ProjectPage({
                           <div className="h-px w-full bg-border/50 my-10"></div>
                         )}
                       </div>
-                    ),
+                    )
                   )}
                 </div>
               </div>

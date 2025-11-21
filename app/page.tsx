@@ -149,7 +149,7 @@ export default function Home() {
                   onMouseLeave={() => setHoveredSection(null)}
                 />
               </div>
-            ),
+            )
           )}
         </div>
       </nav>
@@ -610,32 +610,27 @@ export default function Home() {
                 </p>
 
                 <div className="space-y-4">
-                  <Tooltip>
-                    <TooltipTrigger asChild>
-                      <Link
-                        href="mailto:sarkar.ab07@gmail.com"
-                        className="group flex items-center gap-3 text-foreground hover:text-muted-foreground transition-colors duration-300"
-                      >
-                        <span className="text-base sm:text-lg">
-                          sarkar.ab07@gmail.com
-                        </span>
-                        <svg
-                          className="w-5 h-5 transform group-hover:translate-x-1 transition-transform duration-300"
-                          fill="none"
-                          stroke="currentColor"
-                          viewBox="0 0 24 24"
-                        >
-                          <path
-                            strokeLinecap="round"
-                            strokeLinejoin="round"
-                            strokeWidth={2}
-                            d="M17 8l4 4m0 0l-4 4m4-4H3"
-                          />
-                        </svg>
-                      </Link>
-                    </TooltipTrigger>
-                    <TooltipContent side="top">Send email</TooltipContent>
-                  </Tooltip>
+                  <Link
+                    href="mailto:sarkar.ab07@gmail.com"
+                    className="group flex items-center gap-3 text-foreground hover:text-muted-foreground transition-colors duration-300"
+                  >
+                    <span className="text-base sm:text-lg">
+                      sarkar.ab07@gmail.com
+                    </span>
+                    <svg
+                      className="w-5 h-5 transform group-hover:translate-x-1 transition-transform duration-300"
+                      fill="none"
+                      stroke="currentColor"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        strokeWidth={2}
+                        d="M17 8l4 4m0 0l-4 4m4-4H3"
+                      />
+                    </svg>
+                  </Link>
                 </div>
               </div>
             </div>
