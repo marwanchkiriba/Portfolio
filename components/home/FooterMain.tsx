@@ -1,14 +1,23 @@
 "use client";
 
 import React from "react";
+import { useEffect, useState } from "react";
+import { useTheme } from "next-themes";
 
-export default function FooterMain({
-  isDark,
-  toggleTheme,
-}: {
-  isDark: boolean;
-  toggleTheme: () => void;
-}) {
+export default function FooterMain() {
+  const { theme, setTheme, resolvedTheme } = useTheme();
+  const [mounted, setMounted] = useState(false);
+
+  useEffect(() => {
+    setMounted(true);
+  }, []);
+
+  const isDark = mounted ? resolvedTheme === "dark" : true;
+
+  const toggleTheme = () => {
+    setTheme(isDark ? "light" : "dark");
+  };
+
   return (
     <footer className="py-12 sm:py-16 border-t border-border">
       <div className="flex flex-col lg:flex-row justify-between items-start lg:items-center gap-6 sm:gap-8">

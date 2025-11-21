@@ -1,45 +1,17 @@
-"use client";
 
-import { useEffect, useRef, useState } from "react";
-import NavDots from "../components/home/NavDots";
 import HeaderIntro from "@/components/home/HeaderIntro";
 import JobItem from "@/components/home/JobItem";
 import ProjectsList from "@/components/home/ProjectsList";
 import ThoughtsList from "@/components/home/ThoughtsList";
 import ConnectSection from "@/components/home/ConnectSection";
 import FooterMain from "@/components/home/FooterMain";
+import HomeClient from "@/components/home/HomeClient";
 
 export default function Home() {
-  const [isDark, setIsDark] = useState(true);
-  const [activeSection, setActiveSection] = useState("");
-  const [hoveredSection, setHoveredSection] = useState<string | null>(null);
-  const sectionsRef = useRef<(HTMLElement | null)[]>([]);
-
-  useEffect(() => {
-    document.documentElement.classList.toggle("dark", isDark);
-  }, [isDark]);
-
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add("animate-fade-in-up");
-            setActiveSection(entry.target.id);
-          }
-        });
-      },
-      { threshold: 0.3, rootMargin: "0px 0px -20% 0px" }
-    );
-
-    sectionsRef.current.forEach((section) => {
-      if (section) observer.observe(section);
-    });
-
-    return () => observer.disconnect();
-  }, []);
-
-  const toggleTheme = () => setIsDark(!isDark);
+  // This file is a server component. Interactive behavior (theme toggle,
+  // active-section highlighting) is handled by a small client component
+  // `HomeClient` so that the initial page can be fully server-rendered for
+  // optimal LCP.
 
   const jobs = [
     {
@@ -188,29 +160,14 @@ export default function Home() {
 
   return (
     <div className="min-h-screen bg-background text-foreground relative">
-      <NavDots
-        activeSection={activeSection}
-        setHoveredSection={setHoveredSection}
-      />
+      <HomeClient />
 
       <main className="max-w-4xl mx-auto px-6 sm:px-8 lg:px-16">
-        <header
-          id="intro"
-          ref={(el: HTMLElement | null) => {
-            sectionsRef.current[0] = el;
-          }}
-          className="min-h-screen flex items-center"
-        >
+        <header id="intro" className="min-h-screen flex items-center">
           <HeaderIntro />
         </header>
 
-        <section
-          id="work"
-          ref={(el: HTMLElement | null) => {
-            sectionsRef.current[1] = el;
-          }}
-          className="min-h-screen py-20 sm:py-32"
-        >
+        <section id="work" className="min-h-screen py-20 sm:py-32">
           <div className="space-y-12 sm:space-y-16">
             <div className="flex flex-col sm:flex-row sm:items-end sm:justify-between gap-4">
               <h2 className="text-3xl sm:text-4xl font-medium">
@@ -233,9 +190,6 @@ export default function Home() {
 
         <section
           id="projects"
-          ref={(el: HTMLElement | null) => {
-            sectionsRef.current[2] = el;
-          }}
           className="min-h-screen py-20 sm:py-32 lg:opacity-15"
         >
           <ProjectsList projects={projects} />
@@ -243,25 +197,16 @@ export default function Home() {
 
         <section
           id="thoughts"
-          ref={(el: HTMLElement | null) => {
-            sectionsRef.current[3] = el;
-          }}
           className="min-h-screen py-20 sm:py-32 lg:opacity-15"
         >
           <ThoughtsList posts={thoughts} />
         </section>
 
-        <section
-          id="connect"
-          ref={(el: HTMLElement | null) => {
-            sectionsRef.current[4] = el;
-          }}
-          className="py-20 sm:py-32"
-        >
+        <section id="connect" className="py-20 sm:py-32">
           <ConnectSection socials={socials} />
         </section>
 
-        <FooterMain isDark={isDark} toggleTheme={toggleTheme} />
+        <FooterMain />
       </main>
 
       <div className="fixed bottom-0 left-0 right-0 h-24 bg-linear-to-t from-background via-background/80 to-transparent pointer-events-none"></div>

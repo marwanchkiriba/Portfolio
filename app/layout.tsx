@@ -4,6 +4,7 @@ import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
 import { generateStructuredData } from "@/lib/seo";
+import { ThemeProvider } from "@/components/theme-provider";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -112,7 +113,7 @@ export default function RootLayout({
   });
 
   return (
-    <html lang="en" className={`${inter.variable}`}>
+    <html lang="en" className={`${inter.variable} dark`}>
       <head>
         <script
           type="application/ld+json"
@@ -122,7 +123,11 @@ export default function RootLayout({
         />
       </head>
       <GoogleAnalytics gaId={process.env.NEXT_PUBLIC_GA_ID!} />
-      <body className="font-sans antialiased">{children}</body>
+      <body className="font-sans antialiased">
+        <ThemeProvider attribute="class" enableSystem defaultTheme="dark">
+          {children}
+        </ThemeProvider>
+      </body>
     </html>
   );
 }
