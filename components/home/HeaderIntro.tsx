@@ -32,7 +32,7 @@ export default function HeaderIntro() {
               <Tooltip>
                 <TooltipTrigger asChild>
                   <Link href={"mailto:sarkar.ab07@gmail.com"}>
-                    Available for work
+                    Software Developer for Hire
                   </Link>
                 </TooltipTrigger>
                 <TooltipContent side="top">
@@ -89,7 +89,7 @@ export default function HeaderIntro() {
         </div>
       </div>
 
-      <div className="lg:col-span-2 flex flex-col justify-end space-y-6 sm:space-y-8 mt-8 lg:mt-0">
+      {/* <div className="lg:col-span-2 flex flex-col justify-end space-y-6 sm:space-y-8 mt-8 lg:mt-0">
         <div className="space-y-4">
           <div className="text-sm text-muted-foreground font-mono">
             PREVIOUSLY
@@ -122,6 +122,42 @@ export default function HeaderIntro() {
                 className="px-3 py-1 text-xs bg-accent/45 backdrop-blur-lg border border-dashed border-border rounded-lg hover:border-muted-foreground/50 transition-colors duration-300"
               >
                 {skill}
+              </span>
+            ))}
+          </div>
+        </div>
+      </div> */}
+
+      <div className="lg:col-span-2 flex flex-col justify-end space-y-6 sm:space-y-8 mt-8 lg:mt-0">
+        <div className="space-y-4">
+          <div className="text-sm text-muted-foreground font-mono">
+            WHAT I DO
+          </div>
+          <div className="space-y-2">
+            <div className="text-foreground">Building Products</div>
+            <div className="text-muted-foreground">
+              From idea → architecture → development → launch
+            </div>
+          </div>
+        </div>
+
+        <div className="space-y-4">
+          <div className="text-sm text-muted-foreground font-mono">FOCUS</div>
+          <div className="flex flex-wrap gap-2">
+            {[
+              "Full-Stack Development",
+              "Next.js / TypeScript",
+              "Golang / Node.js",
+              "PostgreSQL",
+              "API Design & Development",
+              "Deployment & CI/CD",
+              "Cloud & Devops",
+            ].map((service) => (
+              <span
+                key={service}
+                className="px-3 py-1 text-xs bg-accent/45 backdrop-blur-lg border border-dashed border-border rounded-lg hover:border-muted-foreground/50 transition-colors duration-300"
+              >
+                {service}
               </span>
             ))}
           </div>
