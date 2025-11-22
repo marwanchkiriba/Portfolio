@@ -70,7 +70,7 @@ export const metadata: Metadata = {
       "Abhoy Sarkar — Software Developer (Typescript, Go, Next.js, Node.js, Postgresql)",
     description:
       "Software Developer building production-ready web apps with Go, Next.js, Prisma and PostgreSQL. See projects, notes and deployment tips.",
-    images: ["/og-image.jpg"],
+    images: ["/og-image.png"],
   },
   robots: {
     index: true,
