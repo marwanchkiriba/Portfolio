@@ -1,5 +1,7 @@
+"use client";
 import React from "react";
 import ConnectSection from "@/components/home/ConnectSection";
+import { ChevronLeft } from "lucide-react";
 
 export default function AboutPage() {
   const socials = [
@@ -26,6 +28,17 @@ export default function AboutPage() {
         <a className="sr-only sr-only-focusable" href="#main-content">
           Skip to content
         </a>
+
+        {/* Back Button */}
+        <button
+          type="button"
+          onClick={() => window.history.back()}
+          className="mb-8 flex items-center gap-2 text-sm text-muted-foreground hover:text-foreground transition-colors"
+          aria-label="Go back"
+        >
+          <ChevronLeft className="h-5 w-5" />
+          Back
+        </button>
 
         <header className="mb-12">
           <h1

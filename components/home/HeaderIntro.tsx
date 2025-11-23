@@ -24,6 +24,16 @@ export default function HeaderIntro() {
             <span className="text-foreground">TypeScript</span>,{" "}
             <span className="text-foreground">Node.js</span>,and{" "}
             <span className="text-foreground">PostgreSQL</span>.
+            <Tooltip>
+              <TooltipTrigger asChild>
+                <Link href="/about-me" className="underline ml-1 text-sm">
+                  Learn more about me.
+                </Link>
+              </TooltipTrigger>
+              <TooltipContent side="top">
+                About me — experience, skills, and contact
+              </TooltipContent>
+            </Tooltip>
           </p>
 
           <div className="flex flex-row sm:items-center gap-3 sm:gap-4 text-sm text-muted-foreground">
