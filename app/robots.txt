@@ -1,7 +1,15 @@
 User-agent: *
-Disallow: /api/
-Disallow: /_next/
+# Allow the site root and public pages
 Allow: /
 
+# Disallow application internals and API routes
+Disallow: /api/
+
+# Next.js internals: allow static assets but disallow other _next paths
+Allow: /_next/static/
+Disallow: /_next/
+
+# Optional: prevent crawling of ephemeral preview or staging pages if any
+# Disallow: /preview/
 
 Sitemap: https://www.abhoy.xyz/sitemap.xml
