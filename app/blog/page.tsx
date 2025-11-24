@@ -4,8 +4,8 @@ import Link from "next/link";
 import { blogPosts } from "@/lib/data";
 import { ThemeToggle } from "@/components/theme-toggle";
 import { useEffect } from "react";
-import { BlogPost, generateBlogStaticParams } from "@/lib/seo";
 import { Calendar, ChevronLeft } from "lucide-react";
+import SearchWidget from "@/components/SearchWidget";
 
 export default function BlogPage() {
   useEffect(() => {
@@ -45,6 +45,7 @@ export default function BlogPage() {
                 performance optimization, and modern web technologies, sharing
                 what I&apos;ve learned to help developers improve their skills.
               </p>
+              <SearchWidget />
             </div>
 
             {/* Blog Posts List */}

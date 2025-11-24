@@ -5,6 +5,7 @@ import { Inter } from "next/font/google";
 import "./globals.css";
 import { generateStructuredData } from "@/lib/seo";
 import { ThemeProvider } from "@/components/theme-provider";
+import SearchWidget from "@/components/SearchWidget";
 
 const inter = Inter({
   subsets: ["latin"],
