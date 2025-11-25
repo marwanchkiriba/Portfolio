@@ -35,6 +35,49 @@ export interface BlogContentBlock {
 
 export const projects: Project[] = [
   {
+  slug: "pixel-art-editor",
+  name: "Pixel Art Editor — Minecraft-Style Pixel Art Canvas",
+  description:
+    "A lightweight, browser-based pixel art editor optimized for creating Minecraft-style sprites and profile pictures. Built with a fast, keyboard-friendly canvas interface using Next.js, Tailwind, and shadcn UI, and deployed seamlessly on Vercel.",
+  longDescription: `
+Pixel Art Editor was built to offer a simple yet powerful way to create Minecraft-style pixel art directly in the browser. Most pixel editors are either overloaded with features or lack the crisp, grid-perfect interaction needed for game-style pixel creation. This project focuses on speed, clarity, and creator friendliness — letting users sketch pixel art avatars and sprites with zero learning curve.
+
+**Key Challenges**
+- Designing a grid-based canvas that feels responsive while maintaining pixel precision.
+- Implementing intuitive drawing tools (pen, eraser, fill, color picker) without introducing UI clutter.
+- Ensuring smooth, flicker-free updates while modifying large sections of the pixel grid.
+- Creating a mobile-friendly layout without compromising editing accuracy.
+
+**Key Learnings**
+- Leveraging the Next.js app router significantly improved rendering performance for canvas-heavy interactions.
+- Tailwind + shadcn UI enabled a lightweight yet polished interface with highly reusable components.
+- Maintaining the canvas state using centralized hooks simplified undo/redo logic and reduced re-renders.
+- Deployment on Vercel allowed for instant previews, fast iteration, and smooth optimizations via build analytics.
+
+**Uniqueness**
+- A clean, distraction-free editor tailor-made for Minecraft-style pixel avatars.
+- Highly responsive pixel grid with instant visual feedback.
+- Export-ready output suitable for PFPs, sprite sheets, or game modding.
+- Thoughtfully designed minimal UI that emphasizes creation, not complexity.
+
+**Impact**
+- Enabled creators to produce pixel art PFPs within minutes, even with no prior design experience.
+- Reduced friction for hobbyist artists by keeping all functionality in the browser — no installs required.
+- Provided a simple tool for prototyping Minecraft-style sprites for personal or game-mod projects.
+`,
+  tech: [
+    "Next.js",
+    "Tailwind CSS",
+    "shadcn/ui",
+    "TypeScript",
+    "Vercel",
+    "Canvas API"
+  ],
+  link: "https://pixel-art-editor-chi.vercel.app/",
+  github: "https://github.com/abhoy21/pixel-art-editor.git",
+  year: "2025",
+},
+  {
     slug: "mindsketch-collaborative-diagramming",
     name: "MindSketch — Real-time Collaborative Diagramming",
     description:

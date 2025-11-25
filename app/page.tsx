@@ -8,10 +8,6 @@ import FooterMain from "@/components/home/FooterMain";
 import HomeClient from "@/components/home/HomeClient";
 
 export default function Home() {
-  // This file is a server component. Interactive behavior (theme toggle,
-  // active-section highlighting) is handled by a small client component
-  // `HomeClient` so that the initial page can be fully server-rendered for
-  // optimal LCP.
 
   const jobs = [
     {
@@ -49,6 +45,22 @@ export default function Home() {
   ];
 
   const projects = [
+     {
+      name: "Pixel Art Editor — Minecraft-Style Pixel Art Canvas",
+      description:
+        "A lightweight, browser-based pixel art editor optimized for creating Minecraft-style sprites and profile pictures. Built with a fast, keyboard-friendly canvas interface using Next.js, Tailwind, and shadcn UI, and deployed seamlessly on Vercel.",
+       tech: [
+    "Next.js",
+    "Tailwind CSS",
+    "shadcn/ui",
+    "TypeScript",
+    "Vercel",
+    "Canvas API"
+  ],
+      link: "https://pixel-art-editor-chi.vercel.app/",
+      year: "2025",
+      slug: "pixel-art-edito",
+    },
     {
       name: "MindSketch — Real-time Collaborative Diagramming",
       description:
@@ -83,22 +95,7 @@ export default function Home() {
       year: "2024",
       slug: "aipowered-content-generation-platform",
     },
-    {
-      name: "Expense Tracker App — Mobile Personal Finance Manager",
-      description:
-        "Cross-platform mobile app for tracking income, expenses, and categorized transactions. Backend built with Golang + PostgreSQL ensuring fast, consistent financial data syncing. Delivered smooth UI using React Native (Expo).",
-      tech: [
-        "Golang",
-        "React Native",
-        "Expo",
-        "PostgreSQL",
-        "GORM",
-        "REST API",
-      ],
-      link: "https://youtube.com/shorts/nNH_S0kq3Sw?si=ezWg0XDpm-THAzJa",
-      year: "2025",
-      slug: "expense-tracker-mobile-app",
-    },
+   
   ];
 
   const thoughts = [
