@@ -47,7 +47,7 @@ export default function BlogPage() {
                 what I&apos;ve learned to help developers improve their skills.
               </p>
               <SearchWidget />
-              <AdBanner />
+              
             </div>
 
             {/* Blog Posts List */}
@@ -106,6 +106,7 @@ export default function BlogPage() {
             </div>
           </div>
         </div>
+        <AdBanner />
       </main>
     </div>
   );
