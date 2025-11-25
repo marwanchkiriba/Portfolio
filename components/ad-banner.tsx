@@ -29,7 +29,7 @@ const AdBanner = ({
         <div className="relative min-h-[250px] sm:min-h-[280px] lg:min-h-[300px] w-full rounded-lg border border-border/50 bg-muted/20 p-4 overflow-hidden">
           <ins
             className="adsbygoogle"
-            style={{ display: "block", minHeight: "250px" }}
+            style={{ display: "block", minHeight: "250px", borderRadius: "10px" }}
             data-ad-client={process.env.NEXT_PUBLIC_GOOGLE_ADS_CLIENT_ID}
             data-ad-slot={dataAdSlot}
             data-ad-format={dataAdFormat}
