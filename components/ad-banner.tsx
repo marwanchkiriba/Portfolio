@@ -24,14 +24,20 @@ const AdBanner = ({
   }, []);
 
   return (
-    <ins
-      className="adsbygoogle"
-      style={{ display: "block" }}
-      data-ad-client={process.env.NEXT_PUBLIC_GOOGLE_ADS_CLIENT_ID}
-      data-ad-slot={dataAdSlot}
-      data-ad-format={dataAdFormat}
-      data-full-width-responsive={dataFullWidthResponsive.toString()}
-    ></ins>
+    <div className="w-full my-8 sm:my-12">
+      <div className="mx-auto max-w-4xl">
+        <div className="relative min-h-[250px] sm:min-h-[280px] lg:min-h-[300px] w-full rounded-lg border border-border/50 bg-muted/20 p-4 overflow-hidden">
+          <ins
+            className="adsbygoogle"
+            style={{ display: "block", minHeight: "250px" }}
+            data-ad-client={process.env.NEXT_PUBLIC_GOOGLE_ADS_CLIENT_ID}
+            data-ad-slot={dataAdSlot}
+            data-ad-format={dataAdFormat}
+            data-full-width-responsive={dataFullWidthResponsive.toString()}
+          ></ins>
+        </div>
+      </div>
+    </div>
   );
 };
 
