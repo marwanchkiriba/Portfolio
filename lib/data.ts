@@ -1632,4 +1632,573 @@ console.groupEnd();`,
       },
     ],
   },
+  {
+    id: "7",
+    title:
+      "How CORS Really Works Under the Hood: A Deep Dive for Modern Web Developers",
+    slug: "how-cors-works-under-the-hood",
+    excerpt:
+      "Understand how CORS prevents security vulnerabilities, how browsers validate cross-origin requests, and what actually happens during preflight, headers, and server checks. A complete, human-readable guide for backend and frontend developers.",
+    date: "July 2025",
+    readTime: "12 min",
+    tags: ["CORS", "Web Security", "JavaScript", "Backend", "HTTP"],
+    featured: true,
+
+    content: [
+      {
+        type: "paragraph",
+        content:
+          "If you’ve been building modern web apps, whether a frontend in React or a backend in Node.js, FastAPI, or Go, you’ve definitely faced that infamous error: “CORS policy: Access to fetch at…”. For many developers, CORS feels like a random wall the browser throws up. But under the hood, CORS is actually a well-structured security system designed to protect users, not frustrate developers.",
+      },
+
+      {
+        type: "paragraph",
+        content:
+          "In this guide, we’ll break down what CORS is, why it exists, how it actually works internally, and the problems it solves. By the end, you’ll understand exactly what your browser does during a CORS request and how servers decide whether to allow or block it. This is the kind of deep understanding tech recruiters love to see, especially for backend, full-stack, and platform engineering roles.",
+      },
+
+      // Heading
+      {
+        type: "heading",
+        level: 2,
+        content: "What Exactly Is CORS?",
+      },
+
+      {
+        type: "paragraph",
+        content:
+          "CORS, or Cross-Origin Resource Sharing, is a browser security mechanism. It governs how a web page from one origin (domain + protocol + port) can request resources from another origin. Without CORS, any website could freely make requests to any backend you’re logged into, bank accounts, emails, social media, and silently read the responses. CLEARLY DANGEROUS!",
+      },
+
+      {
+        type: "paragraph",
+        content:
+          "CORS acts as a protective layer on top of HTTP, preventing malicious cross-site requests while still allowing legitimate communication across domains like API gateways, microservices, CDNs, and SPA frontends.",
+      },
+
+      // Heading
+      {
+        type: "heading",
+        level: 2,
+        content: "Why Does CORS Even Exist?",
+      },
+
+      {
+        type: "paragraph",
+        content:
+          "To understand CORS, you need to first understand the Same-Origin Policy (SOP). SOP is a strict browser rule that blocks JavaScript running in one origin from reading data from another origin. It’s one of the most important security walls of the modern web.",
+      },
+
+      {
+        type: "paragraph",
+        content:
+          "But as applications evolved, the web needed a secure way to allow APIs on different domains, like `api.myapp.com`, CDNs, authentication servers, and 3rd-party integrations, to communicate with frontends. That's where CORS steps in.",
+      },
+
+      {
+        type: "list",
+        items: [
+          'SOP = "block everything unless it’s the same origin"',
+          'CORS = "open some doors, but only when the server explicitly allows it"',
+        ],
+      },
+
+      // Heading
+      {
+        type: "heading",
+        level: 2,
+        content:
+          "What Happens During a CORS Request? (The Real Under-the-Hood Flow)",
+      },
+
+      {
+        type: "paragraph",
+        content:
+          "Every cross-origin request triggers a multi-step check inside the browser. These steps run before the request reaches your backend logic. Developers often assume CORS is enforced by the server, but in reality, the browser is the true gatekeeper.",
+      },
+
+      {
+        type: "heading",
+        level: 3,
+        content: "1. Browser Adds the Origin Header",
+      },
+      {
+        type: "paragraph",
+        content:
+          "When your frontend makes a request, the browser automatically attaches the `Origin` header:",
+      },
+      {
+        type: "code",
+        language: "txt",
+        content: "Origin: https://frontend-app.com",
+      },
+
+      {
+        type: "paragraph",
+        content:
+          "This tells the backend, “Hey, this request came from this domain, are we allowed?”",
+      },
+
+      // Preflight Section
+      {
+        type: "heading",
+        level: 3,
+        content: "2. Does the Browser Need a Preflight Request?",
+      },
+
+      {
+        type: "paragraph",
+        content:
+          "For many requests, especially those with custom headers or methods like `PUT`, `PATCH`, or `DELETE`, the browser first sends an OPTIONS preflight request. This checks whether the target server allows the real request.",
+      },
+
+      {
+        type: "code",
+        language: "txt",
+        content: `OPTIONS /api/data HTTP/1.1
+Origin: https://frontend-app.com
+Access-Control-Request-Method: PUT
+Access-Control-Request-Headers: Authorization, Content-Type`,
+      },
+
+      {
+        type: "paragraph",
+        content:
+          "If the server approves, it responds with the appropriate CORS headers. If not, the browser simply blocks the request before your backend code even runs.",
+      },
+
+      {
+        type: "code",
+        language: "txt",
+        content: `HTTP/1.1 204 No Content
+Access-Control-Allow-Origin: https://frontend-app.com
+Access-Control-Allow-Methods: PUT, GET, POST
+Access-Control-Allow-Headers: Authorization, Content-Type
+Access-Control-Max-Age: 600`,
+      },
+
+      {
+        type: "paragraph",
+        content:
+          "`Access-Control-Max-Age` lets the browser cache the preflight result for faster subsequent requests. This improves performance significantly.",
+      },
+
+      // Simple request section
+      {
+        type: "heading",
+        level: 3,
+        content: "3. Simple Requests (No Preflight)",
+      },
+
+      {
+        type: "paragraph",
+        content:
+          'Not all CORS requests require a preflight. "Simple requests", such as `GET`, `POST`, or `HEAD` with no custom headers, go straight to the server. The browser only checks the response headers afterward.',
+      },
+
+      // Response validation
+      {
+        type: "heading",
+        level: 3,
+        content: "4. Browser Validates Server Response",
+      },
+
+      {
+        type: "paragraph",
+        content:
+          "If the server sends back `Access-Control-Allow-Origin` and (if needed) `Access-Control-Allow-Credentials`, the browser allows JavaScript to read the response. Otherwise, it blocks access, even if the server returned data successfully!",
+      },
+
+      {
+        type: "code",
+        language: "txt",
+        content: `HTTP/1.1 200 OK
+Access-Control-Allow-Origin: https://frontend-app.com
+Content-Type: application/json`,
+      },
+
+      {
+        type: "paragraph",
+        content:
+          "This final validation ensures that even if a server accidentally exposes data, the browser prevents malicious websites from reading it.",
+      },
+
+      // Problems CORS Solves
+      {
+        type: "heading",
+        level: 2,
+        content: "What Problems Does CORS Actually Solve?",
+      },
+
+      {
+        type: "list",
+        items: [
+          "Stops malicious websites from hijacking user sessions (no silent API calls to banking, social, email accounts)",
+          "Prevents Cross-Site Request Forgery (CSRF) data leaks",
+          "Gives servers full control over who can access their APIs",
+          "Enables safe access to multi-origin architectures** (SPA + API + CDN setups)",
+          "Allows 3rd-party integrations while keeping user data secure",
+        ],
+      },
+
+      // Heading
+      {
+        type: "heading",
+        level: 2,
+        content: "Common Misunderstandings About CORS",
+      },
+
+      {
+        type: "list",
+        items: [
+          "CORS is not a server-side security barrier, it's a browser side enforcement.",
+          "Backend code still executes even if CORS blocks the response.",
+          "CORS doesn't affect mobile apps, backend requests, or Postman.",
+          "CORS is not meant to hide APIs; it's meant to control who can read the responses.",
+        ],
+      },
+
+      // Heading
+      {
+        type: "heading",
+        level: 2,
+        content: "How Backend Servers Decide CORS Rules",
+      },
+
+      {
+        type: "paragraph",
+        content:
+          "On the backend side, you explicitly configure which origins, methods, and headers are allowed. Here’s how a Node.js Express setup typically looks:",
+      },
+
+      {
+        type: "code",
+        language: "javascript",
+        content: `import cors from "cors";
+import express from "express";
+
+const app = express();
+
+app.use(
+  cors({
+    origin: ["https://frontend-app.com"],
+    methods: ["GET", "POST", "PUT", "DELETE],
+    credentials: true,
+  })
+);
+
+app.listen(8000);`,
+      },
+
+      {
+        type: "paragraph",
+        content:
+          "The same concept applies to Django, Spring Boot, FastAPI, Laravel, or Go: the server defines access rules, and the browser enforces them.",
+      },
+
+      // Conclusion
+      {
+        type: "heading",
+        level: 2,
+        content: "Final Thoughts: CORS Isn't the Enemy, It’s a Safety Net",
+      },
+
+      {
+        type: "paragraph",
+        content:
+          "CORS can feel annoying when you're building quickly and something breaks. But once you understand how the browser, the server, and the HTTP protocol work together, CORS becomes much easier to work with. It’s not a bug or a hurdle, it’s a protection layer that ensures users’ data stays safe while still enabling modern, distributed web applications.",
+      },
+
+      {
+        type: "paragraph",
+        content:
+          "With this deep knowledge of CORS internals, you're not just fixing errors, you’re building secure systems that scale. And trust me, that's something every technical interviewer and recruiter values highly.",
+      },
+    ],
+  },
+  {
+    id: "8",
+    slug: "mastering-javascript-closures-explained-with-examples",
+    title:
+      "Mastering JavaScript Closures: A Practical, Human-Friendly Guide Every Developer Should Know!",
+    excerpt:
+      "A friendly deep dive into JavaScript closures, how they work under the hood, why they matter, and how to use them confidently in real-world code.",
+    date: "July 2025",
+    readTime: "9 min",
+    tags: [
+      "javascript",
+      "closures",
+      "functional programming",
+      "interview",
+      "scope",
+    ],
+    featured: true,
+
+    content: [
+      {
+        type: "paragraph",
+        content:
+          "If you’ve ever prepared for a JavaScript interview, you’ve definitely heard the question: “What are closures?” For many developers, closures feel like this mysterious superpower hidden deep inside JavaScript. But once you understand them properly, you’ll realise closures are actually one of the most elegant, practical, and powerful mechanisms in the language.",
+      },
+      {
+        type: "paragraph",
+        content:
+          "In this blog, we’ll break down closures in a simple, conversational, human-friendly way, no jargon overload, no textbook vibe. Just clear explanations, relatable examples, and recruiter impressing insights that show you truly understand the language.",
+      },
+
+      {
+        type: "heading",
+        level: 2,
+        content: "So… What Exactly Are Closures?",
+      },
+      {
+        type: "paragraph",
+        content:
+          "A closure is created when a function remembers the variables from the place where it was created, even after that outer function has finished executing. In simpler words:",
+      },
+      {
+        type: "paragraph",
+        content:
+          "👉 A closure is when JavaScript gives a function the superpower to access its outer scope even after the scope is gone.",
+      },
+
+      {
+        type: "code",
+        language: "javascript",
+        content: `function greet(name) {
+  return function () {
+    console.log("Hello " + name);
+  };
+}
+
+const sayHello = greet("Abhoy");
+sayHello();  // Output: Hello Abhoy`,
+      },
+
+      {
+        type: "paragraph",
+        content:
+          "Even though `greet()` has finished executing, the inner function still remembers the value of `name`. That’s closure in action. This is why closures are often described as functions bundled with lexical scope.",
+      },
+
+      {
+        type: "heading",
+        level: 2,
+        content: "Why Are Closures So Important?",
+      },
+      {
+        type: "paragraph",
+        content:
+          "Closures are everywhere, callbacks, event listeners, state management, private variables, debouncing, throttling, currying, and more. When recruiters see 'solid understanding of closures' on your resume, it signals that you deeply understand JavaScript’s execution model and not just syntax.",
+      },
+      {
+        type: "list",
+        items: [
+          "They help maintain state without polluting the global scope.",
+          "They enable private variables and encapsulation in JavaScript.",
+          "They allow powerful functional programming patterns.",
+          "They make your code more predictable and modular.",
+          "They’re heavily used in real-world frameworks and libraries.",
+        ],
+      },
+
+      {
+        type: "heading",
+        level: 2,
+        content: "Let’s Understand Closures with a Practical Analogy",
+      },
+      {
+        type: "paragraph",
+        content:
+          "Imagine you’re at a restaurant. You place an order, and the waiter writes it down. Even after leaving your table, the waiter still remembers your order because it’s stored in their notepad. That notepad is the closure.",
+      },
+      {
+        type: "paragraph",
+        content:
+          "The waiter (inner function) keeps the notepad (outer scope variables) with them, even after leaving your table (outer function finished executing).",
+      },
+
+      {
+        type: "heading",
+        level: 2,
+        content: "How Closures Work Under the Hood",
+      },
+      {
+        type: "paragraph",
+        content:
+          "Closures rely on two core concepts in JavaScript: lexical scoping and the execution context. JavaScript decides variable scope at the time you write the code, not at runtime. And whenever a function is created, it carries a reference to the environment in which it was defined.",
+      },
+      {
+        type: "paragraph",
+        content:
+          "So even when the outer function finishes, JavaScript doesn’t garbage collect those variables if they are still being referenced by an inner function.",
+      },
+
+      {
+        type: "heading",
+        level: 3,
+        content: "Example: A Counter Using Closures",
+      },
+      {
+        type: "code",
+        language: "javascript",
+        content: `function createCounter() {
+  let count = 0;
+
+  return function () {
+    count++;
+    console.log(count);
+  };
+}
+
+const counter = createCounter();
+counter(); // 1
+counter(); // 2
+counter(); // 3`,
+      },
+      {
+        type: "paragraph",
+        content:
+          "Here, the `count` variable lives inside the closure. It’s private and cannot be accessed directly from outside. This is one of the most powerful uses of closures, creating truly private state.",
+      },
+
+      {
+        type: "heading",
+        level: 2,
+        content: "Real-World Use Cases of Closures",
+      },
+      {
+        type: "paragraph",
+        content:
+          "Closures are not just a theoretical interview question, they’re used daily in real-world development. Here are some practical examples:",
+      },
+      {
+        type: "list",
+        items: [
+          "Debouncing (e.g., search input)",
+          "Throttling (e.g., scroll or resize events)",
+          "Private variables in JavaScript classes or modules",
+          "Callback functions",
+          "Event listeners that need access to outer scope",
+          "Memoization for optimization",
+        ],
+      },
+
+      {
+        type: "heading",
+        level: 2,
+        content: "Debounce Example Using Closures",
+      },
+      {
+        type: "paragraph",
+        content:
+          "Here’s a simple debounce function demonstrating closures in action:",
+      },
+      {
+        type: "code",
+        language: "javascript",
+        content: `function debounce(fn, delay) {
+  let timer;
+
+  return function (...args) {
+    clearTimeout(timer);
+    timer = setTimeout(() => fn.apply(this, args), delay);
+  };
+}
+
+const logSearch = debounce(() => console.log("Searching..."), 300);`,
+      },
+      {
+        type: "paragraph",
+        content:
+          "`timer` stays alive inside the closure, allowing the function to remember previous calls. Without closures, this would be impossible.",
+      },
+
+      {
+        type: "heading",
+        level: 2,
+        content: "Common Mistakes Developers Make with Closures",
+      },
+      {
+        type: "list",
+        items: [
+          "Using closures unintentionally and causing memory leaks.",
+          "Creating closures inside loops without understanding scope.",
+          "Mixing up block scope (`let`, `const`) and function scope (`var`).",
+          "Returning functions without realising they retain references.",
+        ],
+      },
+
+      {
+        type: "heading",
+        level: 3,
+        content: "Example: Closure Issue in Loops",
+      },
+      {
+        type: "code",
+        language: "javascript",
+        content: `for (var i = 1; i <= 3; i++) {
+  setTimeout(() => console.log(i), 1000);
+}
+
+// Output: 4 4 4 (not 1 2 3)`,
+      },
+      {
+        type: "paragraph",
+        content:
+          "Because `var` is function-scoped, all timeout callbacks share the same `i`. With `let`, which is block-scoped, each iteration gets its own copy.",
+      },
+
+      {
+        type: "code",
+        language: "javascript",
+        content: `for (let i = 1; i <= 3; i++) {
+  setTimeout(() => console.log(i), 1000);
+}
+
+// Output: 1 2 3`,
+      },
+
+      {
+        type: "heading",
+        level: 2,
+        content: "When Should You Use Closures?",
+      },
+      {
+        type: "paragraph",
+        content:
+          "Closures are ideal when you want logic that remembers context, maintains state, or encapsulates data. They shine in scenarios like APIs, event-driven code, utility functions, and reusable helpers.",
+      },
+
+      {
+        type: "list",
+        items: [
+          "Use closures to hide implementation details.",
+          "Use them to maintain state across function calls.",
+          "Use them when writing reusable logic like debouncers or memoization.",
+        ],
+      },
+
+      {
+        type: "heading",
+        level: 2,
+        content: "Conclusion: Closures Are the Secret Sauce of JavaScript",
+      },
+      {
+        type: "paragraph",
+        content:
+          "Closures may look intimidating at first, but once you grasp the idea that functions remember where they come from, everything falls into place. They give JavaScript its expressive power, allowing developers to write elegant, modular, and efficient code.",
+      },
+      {
+        type: "paragraph",
+        content:
+          "If you're preparing for interviews or building scalable real-world apps, understanding closures deeply will instantly set you apart. Recruiters love candidates who can explain closures with confidence because it shows mastery, not just familiarity, with the language.",
+      },
+      {
+        type: "paragraph",
+        content:
+          "So try writing a few closure-based utilities yourself. Once you get the hang of it, closures will become one of your favourite features of JavaScript.",
+      },
+    ],
+  },
 ];
