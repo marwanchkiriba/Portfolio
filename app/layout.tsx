@@ -122,6 +122,13 @@ export default function RootLayout({
             __html: JSON.stringify(organizationSchema),
           }}
         />
+        {process.env.NEXT_PUBLIC_GOOGLE_ADS_CLIENT_ID && (
+          <script
+            async
+            src={`https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=${process.env.NEXT_PUBLIC_GOOGLE_ADS_CLIENT_ID}`}
+            crossOrigin="anonymous"
+          ></script>
+        )}
       </head>
       <GoogleAnalytics gaId={process.env.NEXT_PUBLIC_GA_ID!} />
       <body className="font-sans antialiased">
