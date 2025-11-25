@@ -6,6 +6,7 @@ import "./globals.css";
 import { generateStructuredData } from "@/lib/seo";
 import { ThemeProvider } from "@/components/theme-provider";
 import SearchWidget from "@/components/SearchWidget";
+import AdSense from "@/components/ad-sense";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -122,13 +123,14 @@ export default function RootLayout({
             __html: JSON.stringify(organizationSchema),
           }}
         />
-        {process.env.NEXT_PUBLIC_GOOGLE_ADS_CLIENT_ID && (
+        {/* {process.env.NEXT_PUBLIC_GOOGLE_ADS_CLIENT_ID && (
           <script
             async
             src={`https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=${process.env.NEXT_PUBLIC_GOOGLE_ADS_CLIENT_ID}`}
             crossOrigin="anonymous"
           ></script>
-        )}
+        )} */}
+        <AdSense pId={process.env.NEXT_PUBLIC_GOOGLE_ADS_CLIENT_ID!} />
       </head>
       <GoogleAnalytics gaId={process.env.NEXT_PUBLIC_GA_ID!} />
       <body className="font-sans antialiased">
