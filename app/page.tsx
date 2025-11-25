@@ -59,7 +59,7 @@ export default function Home() {
   ],
       link: "https://pixel-art-editor-chi.vercel.app/",
       year: "2025",
-      slug: "pixel-art-edito",
+      slug: "pixel-art-editor",
     },
     {
       name: "MindSketch — Real-time Collaborative Diagramming",
