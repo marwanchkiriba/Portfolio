@@ -6,6 +6,7 @@ import { ThemeToggle } from "@/components/theme-toggle";
 import { useEffect } from "react";
 import { Calendar, ChevronLeft } from "lucide-react";
 import SearchWidget from "@/components/SearchWidget";
+import AdBanner from "@/components/ad-banner";
 
 export default function BlogPage() {
   useEffect(() => {
@@ -46,6 +47,7 @@ export default function BlogPage() {
                 what I&apos;ve learned to help developers improve their skills.
               </p>
               <SearchWidget />
+              <AdBanner />
             </div>
 
             {/* Blog Posts List */}
