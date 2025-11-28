@@ -2244,4 +2244,209 @@ const logSearch = debounce(() => console.log("Searching..."), 300);`,
       },
     ],
   },
+  {
+    id: "9",
+    slug: "building-rag-pipelines-with-langgraph-fastapi",
+    title:
+      "Building Intelligent RAG Pipelines with LangGraph and FastAPI: A Practical Guide for Modern AI Backends",
+    excerpt:
+      "Learn how Retrieval-Augmented Generation (RAG) combined with LangGraph and FastAPI helps you build reliable, production-ready AI systems with smarter reasoning, structured workflows, and blazing-fast APIs.",
+    date: "july 2025",
+    readTime: "10 min",
+    tags: [
+      "rag",
+      "langgraph",
+      "fastapi",
+      "ai-engineering",
+      "llm",
+      "architecture",
+    ],
+    featured: true,
+    content: [
+      {
+        type: "paragraph",
+        content:
+          "AI-powered applications today go far beyond casual chatbots. From enterprise assistants to automated content generation, developers need backends that are fast, reliable, explainable, and easy to scale. This is exactly where RAG (Retrieval-Augmented Generation) and LangGraph shine. Pair them with FastAPI, and you get a modern, production-ready AI backend architecture that's clean, modular.",
+      },
+      {
+        type: "heading",
+        level: 2,
+        content: "Why RAG Matters in 2025",
+      },
+      {
+        type: "paragraph",
+        content:
+          "LLMs are powerful, but they hallucinate,especially when asked about domain-specific or time-sensitive information. Instead of blindly trusting model memory, RAG enhances LLMs by grounding the responses with real documents, embeddings, and vector-based search. This makes your system more accurate, cost-efficient, and deterministic, qualities engineering teams highly value.",
+      },
+      {
+        type: "paragraph",
+        content:
+          "At its core, RAG does three simple things: it retrieves relevant context, feeds it into the LLM, and ensures the output stays factual. But building a robust RAG system isn't just about the algorithm, it requires a workflow engine. This is where LangGraph enters the picture.",
+      },
+      {
+        type: "heading",
+        level: 2,
+        content: "LangGraph: The Missing Piece of Modern AI Workflows",
+      },
+      {
+        type: "paragraph",
+        content:
+          "LangGraph helps you build structured, deterministic AI workflows using a graph-based execution model. Instead of writing endless nested functions or messy agent logic, you get a clear, node-based pipeline that’s easy to debug and scale.",
+      },
+      {
+        type: "list",
+        items: [
+          "Define nodes for embedding, searching, prompting, decision-making, or tool execution.",
+          "Easily orchestrate branching logic and multi-step LLM reasoning.",
+          "Persist conversation state for long-running or multimodal AI workflows.",
+          "Run workflows safely with retries, guards, memory management, and observability.",
+        ],
+      },
+      {
+        type: "paragraph",
+        content:
+          "If you imagine your AI pipeline as a flowchart, LangGraph is the engine that executes each step predictably. This makes your entire system production-ready.",
+      },
+      {
+        type: "heading",
+        level: 2,
+        content: "Why FastAPI Is the Perfect Match",
+      },
+      {
+        type: "paragraph",
+        content:
+          "FastAPI offers everything you want in a modern backend: speed, type-safety, async support, and a clean developer experience. It feels very developer friendly, straightforward, elegant, and FAST.",
+      },
+      {
+        type: "paragraph",
+        content:
+          "When you combine FastAPI with LangGraph, you get a backend that can host complex AI orchestration while still exposing clean REST endpoints like `/chat`, `/query`, or `/process-document`.",
+      },
+      {
+        type: "heading",
+        level: 2,
+        content: "Architecture Overview",
+      },
+      {
+        type: "paragraph",
+        content:
+          "Let’s break down a typical LangGraph + RAG + FastAPI pipeline that most production teams use:",
+      },
+      {
+        type: "list",
+        items: [
+          "User sends a query → FastAPI endpoint",
+          "Vector Search → Retrieve top-k relevant chunks from Chromadb (or any vectorDB)",
+          "LangGraph Workflow → Combine retrieved context + model reasoning",
+          "LLM Generation → Produce accurate final answer",
+          "Storage Layer → Persist conversation history, logs, metadata",
+        ],
+      },
+      {
+        type: "heading",
+        level: 2,
+        content: "Minimal Example: FastAPI + LangGraph RAG Flow",
+      },
+      {
+        type: "code",
+        language: "python",
+        content: `from fastapi import FastAPI
+from langgraph.graph import Graph
+from langchain_community.vectorstores import Chroma
+from langchain_openai import ChatOpenAI, OpenAIEmbeddings
+
+app = FastAPI()
+
+# Setup vector DB and embedding model
+emb = OpenAIEmbeddings()
+db = Chroma(collection_name="docs", embedding_function=emb)
+
+llm = ChatOpenAI(model="gpt-4.1")
+
+graph = Graph()
+
+@graph.node
+def retrieve_node(state):
+    query = state["query"]
+    docs = db.similarity_search(query, k=5)
+    return {"docs": docs}
+
+@graph.node
+def generate_node(state):
+    docs = state["docs"]
+    prompt = f"Context: {docs}\\nQuestion: {state['query']}"
+    result = llm.predict(prompt)
+    return {"answer": result}
+
+graph.add_edge(retrieve_node, generate_node)
+
+@app.post("/chat")
+async def chat_api(payload: dict):
+    result = graph.invoke({"query": payload["message"]})
+    return {"response": result["answer"]}`,
+      },
+      {
+        type: "paragraph",
+        content:
+          "The above workflow is simple, readable, and easy to extend with more nodes—like rerankers, guards, tools, or conversation memory. This is the exact pattern used in real-world AI assistants and document-processing automation systems.",
+      },
+      {
+        type: "heading",
+        level: 2,
+        content: "Real-World Use Cases of LangGraph + RAG + FastAPI",
+      },
+      {
+        type: "list",
+        items: [
+          "Enterprise Knowledge Assistants – HR, legal, finance teams running internal Q&A",
+          "Document Search Systems – PDFs, contracts, manuals, SOPs",
+          "Chat with your Data Apps – Beautiful addition for SaaS dashboards",
+          "Video RAG with Whisper + LangGraph – Extract transcripts → embed → chat",
+          "Support Automation – Summaries, routing, intent detection",
+        ],
+      },
+      {
+        type: "paragraph",
+        content:
+          "If you mention these use-cases in your resume or portfolio, technical recruiters immediately know you’ve worked with real AI infrastructure, not just toy projects.",
+      },
+      {
+        type: "heading",
+        level: 2,
+        content: "Best Practices for Production RAG Systems",
+      },
+      {
+        type: "list",
+        items: [
+          "Break the pipeline into clear LangGraph nodes, don’t overload one function.",
+          "Use hybrid search: embeddings + keyword filters + metadata.",
+          "Chunk documents smartly (300–500 tokens usually works best).",
+          "Add guards and validation nodes to reduce hallucinations.",
+          "Persist conversations for multi-step reasoning.",
+          "Cache embeddings and search queries to save cost.",
+          "Use FastAPI’s async endpoints for high concurrency.",
+        ],
+      },
+      {
+        type: "paragraph",
+        content:
+          "Following these practices ensures your AI backend stays efficient, scalable, and highly maintainable in production.",
+      },
+      {
+        type: "heading",
+        level: 2,
+        content: "Conclusion",
+      },
+      {
+        type: "paragraph",
+        content:
+          "RAG, LangGraph, and FastAPI form one of the most powerful stacks for building intelligent backend systems. Whether you're building an internal AI assistant, search engine, automation bot, or data-analysis tool, this stack gives you predictable workflows and blazing-fast performance. And more importantly, it levels up your engineering profile dramatically.",
+      },
+      {
+        type: "paragraph",
+        content:
+          "If you want to stand out in your next interview, showcase a LangGraph + RAG + FastAPI project. It signals that you understand real AI architecture, orchestration, and production readiness, all of which are highly valued in 2025.",
+      },
+    ],
+  },
 ];
