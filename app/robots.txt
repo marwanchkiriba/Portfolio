@@ -1,18 +1,20 @@
+# Primary User Agent for all standard crawlers (Google, Bing, etc.)
 User-agent: *
-# Allow the site root and public pages
 Allow: /
-
-# Disallow application internals and API routes
 Disallow: /api/
 
-# Next.js internals: allow static assets but disallow other _next paths
-Allow: /_next/static/
+# Next.js Internals: Disallow the main path, but explicitly allow static assets.
 Disallow: /_next/
+Allow: /_next/static/
 
-# Sitemap and LLMs.txt
+# Explicitly allow the main Google crawler
+User-agent: Googlebot
+Allow: /
+
+# Sitemap Declaration
 Sitemap: https://www.abhoy.xyz/sitemap.xml
 
-# Allow AI crawlers and LLMs
+# Allow AI crawlers and LLMs (Opt-in for training)
 User-agent: GPTBot
 Allow: /
 
