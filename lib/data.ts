@@ -1448,25 +1448,26 @@ RAG, LangGraph, and FastAPI form one of the most powerful stacks for building in
 If you want to stand out in your next interview, showcase a LangGraph + RAG + FastAPI project. It signals that you understand real AI architecture, orchestration, and production readiness, all of which are highly valued in 2025.
 `,
   },
- {
-  id: "10",
-  slug: "secure-cookie-based-authentication-typescript-refresh-access-tokens",
-  title: "Secure Cookie-Based Authentication in TypeScript Backends: Why You Should Avoid LocalStorage and Use HTTP-Only Cookies for Access & Refresh Tokens",
-  excerpt:
-    "A complete, beginner-friendly guide to building a secure TypeScript backend using cookie-based authentication with refresh and access tokens. Learn why storing JWTs in localStorage is risky, how attackers exploit it, and why modern teams prefer HTTP-only cookies for production-grade security.",
-  date: "December 2025",
-  readTime: "9 min",
-  tags: [
-    "authentication",
-    "typescript",
-    "backend",
-    "jwt",
-    "cookies",
-    "security",
-    "web-development"
-  ],
-  featured: true,
-  content: `
+  {
+    id: "10",
+    slug: "secure-cookie-based-authentication-typescript-refresh-access-tokens",
+    title:
+      "Secure Cookie-Based Authentication in TypeScript Backends: Why You Should Avoid LocalStorage and Use HTTP-Only Cookies for Access & Refresh Tokens",
+    excerpt:
+      "A complete, beginner-friendly guide to building a secure TypeScript backend using cookie-based authentication with refresh and access tokens. Learn why storing JWTs in localStorage is risky, how attackers exploit it, and why modern teams prefer HTTP-only cookies for production-grade security.",
+    date: "July 2025",
+    readTime: "9 min",
+    tags: [
+      "authentication",
+      "typescript",
+      "backend",
+      "jwt",
+      "cookies",
+      "security",
+      "web-development",
+    ],
+    featured: true,
+    content: `
 Building secure authentication is one of the most important responsibilities of backend developers today. With cyberattacks increasing, companies—even startups—expect developers to know how to build authentication systems that are safe, scalable, and production-ready. And one of the fastest ways to grab the attention of a technical recruiter is to show a backend project where authentication is implemented *properly*, not just with the basic “store JWT in localStorage” method.
 
 But here's the truth most beginners don’t know: **storing tokens in localStorage is not secure**, especially for real-world apps. If your goal is to build a real backend in 2025—something that looks good on GitHub and your resume—then cookie-based authentication with access & refresh tokens is the way to go.

@@ -100,10 +100,11 @@ export default function Home() {
 
   const thoughts = [
     {
-      title: "Building Intelligent RAG Pipelines with LangGraph and FastAPI: A Practical Guide for Modern AI Backends",
+      title:
+        "Building Intelligent RAG Pipelines with LangGraph and FastAPI: A Practical Guide for Modern AI Backends",
       excerpt:
         "Learn how Retrieval-Augmented Generation (RAG) combined with LangGraph and FastAPI helps you build reliable, production-ready AI systems with smarter reasoning, structured workflows, and blazing-fast APIs.",
-      date: "july 2025",
+      date: "July 2025",
       readTime: "10 min",
       slug: "building-rag-pipelines-with-langgraph-fastapi",
     },
