@@ -1605,8 +1605,18 @@ Below is a small but professional-style backend example using Express + TypeScri
 import express from "express";
 import jwt from "jsonwebtoken";
 import cookieParser from "cookie-parser";
+import cors from "cors";
 
 const app = express();
+app.use(
+  cors({
+    origin: process.env.FRONTEND_URL!,
+    credentials: true, // allow cookies
+    methods: ["GET", "POST", "PUT", "DELETE"],
+    allowedHeaders: ["Content-Type", "Authorization"],
+    exposedHeaders: ["Authorization"],
+  })
+);
 app.use(express.json());
 app.use(cookieParser());
 
