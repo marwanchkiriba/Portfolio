@@ -90,7 +90,7 @@ export default function BlogPostPage({
             </div>
 
             {/* Content */}
-            <BlogContentRenderer blocks={post.content!} />
+            <BlogContentRenderer content={post.content!} />
 
             {/* Tags */}
             <div className="space-y-4 pt-8 border-t border-border/50">

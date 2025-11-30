@@ -122,7 +122,7 @@ export interface BlogPost {
   date: string;
   readTime: string;
   tags: string[];
-  content: any[];
+  content: string;
 }
 
 export function generateBlogStaticParams(blogPosts: BlogPost[]) {

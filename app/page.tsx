@@ -100,12 +100,12 @@ export default function Home() {
 
   const thoughts = [
     {
-      title: "Understanding Monorepo and Turborepo",
+      title: "Building Intelligent RAG Pipelines with LangGraph and FastAPI: A Practical Guide for Modern AI Backends",
       excerpt:
-        "A practical guide to Monorepos and how Turborepo supercharges development with caching, parallelization, and smart task scheduling.",
-      date: "Jan 2025",
-      readTime: "7 min",
-      slug: "understanding-monorepo-and-turborepo",
+        "Learn how Retrieval-Augmented Generation (RAG) combined with LangGraph and FastAPI helps you build reliable, production-ready AI systems with smarter reasoning, structured workflows, and blazing-fast APIs.",
+      date: "july 2025",
+      readTime: "10 min",
+      slug: "building-rag-pipelines-with-langgraph-fastapi",
     },
     {
       title:
