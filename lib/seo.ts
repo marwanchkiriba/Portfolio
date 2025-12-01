@@ -60,6 +60,19 @@ export function generateBlogMetadata(post: any) {
   };
 }
 
+function toIsoDate(dateStr: string): string {
+  if (!dateStr) return new Date().toISOString();
+  const date = new Date(dateStr);
+  // If the date string is just a year (e.g. "2025"), set it to Jan 1st
+  if (/^\d{4}$/.test(dateStr)) {
+    date.setMonth(0, 1);
+  }
+  if (isNaN(date.getTime())) {
+    return new Date().toISOString();
+  }
+  return date.toISOString();
+}
+
 export function generateStructuredData(
   type: "project" | "blog" | "person" | "website" | "blog-list",
   data: any,
@@ -77,8 +90,8 @@ export function generateStructuredData(
         "@type": "Person",
         name: "Abhoy Sarkar",
       },
-      datePublished: data.year,
-      image: data.image,
+      datePublished: toIsoDate(data.year),
+      image: data.image ? [data.image] : [`${baseUrl}/og-image.png`],
       url: `${baseUrl}/projects/${data.slug}`,
       keywords: data.tech ? data.tech.join(", ") : "",
     };
@@ -96,22 +109,22 @@ export function generateStructuredData(
         url: baseUrl,
       },
       publisher: {
-        "@type": "Person",
+        "@type": "Organization",
         name: "Abhoy Sarkar",
         logo: {
           "@type": "ImageObject",
           url: `${baseUrl}/og-image.png`,
         },
       },
-      datePublished: data.date,
-      dateModified: data.date,
+      datePublished: toIsoDate(data.date),
+      dateModified: toIsoDate(data.date),
       url: `${baseUrl}/blog/${data.slug}`,
       keywords: data.tags ? data.tags.join(", ") : "",
       mainEntityOfPage: {
         "@type": "WebPage",
         "@id": `${baseUrl}/blog/${data.slug}`,
       },
-      image: data.image ? data.image : `${baseUrl}/og-image.png`,
+      image: data.image ? [data.image] : [`${baseUrl}/og-image.png`],
     };
   }
 
