@@ -103,7 +103,7 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-  const organizationSchema = generateStructuredData("organization", {
+  const personSchema = generateStructuredData("person", {
     name: "Abhoy Sarkar",
     url: "https://www.abhoy.xyz",
     email: "sarkar.ab07@gmail.com",
@@ -114,13 +114,26 @@ export default function RootLayout({
     ],
   });
 
+  const websiteSchema = generateStructuredData("website", {
+    name: "Abhoy Sarkar Portfolio",
+    url: "https://www.abhoy.xyz",
+    description: "Portfolio of Abhoy Sarkar, a Software Developer.",
+    authorName: "Abhoy Sarkar",
+  });
+
   return (
     <html lang="en" className={`${inter.variable} dark`}>
       <head>
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{
-            __html: JSON.stringify(organizationSchema),
+            __html: JSON.stringify(personSchema),
+          }}
+        />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify(websiteSchema),
           }}
         />
         {/* {process.env.NEXT_PUBLIC_GOOGLE_ADS_CLIENT_ID && (

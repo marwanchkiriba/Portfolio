@@ -1,11 +1,11 @@
 // SEO utilities and metadata generation
 export function generateProjectMetadata(project: any) {
   const baseUrl =
-    process.env.NEXT_PUBLIC_BASE_URL || "https://felixmacaspac.com";
+    process.env.NEXT_PUBLIC_BASE_URL || "https://www.abhoy.xyz";
   const url = `${baseUrl}/projects/${project.slug}`;
 
   return {
-    title: `${project.name} | Felix Macaspac Portfolio`,
+    title: `${project.name} | Abhoy Sarkar Portfolio`,
     description: project.description,
     openGraph: {
       title: project.name,
@@ -14,7 +14,7 @@ export function generateProjectMetadata(project: any) {
       type: "article",
       images: [
         {
-          url: project.image || "/og-image.jpg",
+          url: project.image || "/og-image.png",
           width: 1200,
           height: 630,
         },
@@ -24,7 +24,7 @@ export function generateProjectMetadata(project: any) {
       card: "summary_large_image",
       title: project.name,
       description: project.description,
-      images: [project.image || "/og-image.jpg"],
+      images: [project.image || "/og-image.png"],
     },
     alternates: {
       canonical: url,
@@ -34,11 +34,11 @@ export function generateProjectMetadata(project: any) {
 
 export function generateBlogMetadata(post: any) {
   const baseUrl =
-    process.env.NEXT_PUBLIC_BASE_URL || "https://felixmacaspac.com";
+    process.env.NEXT_PUBLIC_BASE_URL || "https://www.abhoy.xyz";
   const url = `${baseUrl}/blog/${post.slug}`;
 
   return {
-    title: `${post.title} | Felix Macaspac`,
+    title: `${post.title} | Abhoy Sarkar`,
     description: post.excerpt,
     openGraph: {
       title: post.title,
@@ -46,7 +46,7 @@ export function generateBlogMetadata(post: any) {
       url: url,
       type: "article",
       publishedTime: post.date,
-      authors: ["Felix Macaspac"],
+      authors: ["Abhoy Sarkar"],
       tags: post.tags,
     },
     twitter: {
@@ -61,11 +61,11 @@ export function generateBlogMetadata(post: any) {
 }
 
 export function generateStructuredData(
-  type: "project" | "blog" | "organization",
+  type: "project" | "blog" | "person" | "website" | "blog-list",
   data: any,
 ) {
   const baseUrl =
-    process.env.NEXT_PUBLIC_BASE_URL || "https://felixmacaspac.com";
+    process.env.NEXT_PUBLIC_BASE_URL || "https://www.abhoy.xyz";
 
   if (type === "project") {
     return {
@@ -75,12 +75,12 @@ export function generateStructuredData(
       description: data.description,
       author: {
         "@type": "Person",
-        name: "Felix Macaspac",
+        name: "Abhoy Sarkar",
       },
       datePublished: data.year,
       image: data.image,
       url: `${baseUrl}/projects/${data.slug}`,
-      keywords: data.tech.join(", "),
+      keywords: data.tech ? data.tech.join(", ") : "",
     };
   }
 
@@ -92,26 +92,88 @@ export function generateStructuredData(
       description: data.excerpt,
       author: {
         "@type": "Person",
-        name: "Felix Macaspac",
+        name: "Abhoy Sarkar",
+        url: baseUrl,
+      },
+      publisher: {
+        "@type": "Person",
+        name: "Abhoy Sarkar",
+        logo: {
+          "@type": "ImageObject",
+          url: `${baseUrl}/og-image.png`,
+        },
       },
       datePublished: data.date,
+      dateModified: data.date,
       url: `${baseUrl}/blog/${data.slug}`,
-      keywords: data.tags.join(", "),
+      keywords: data.tags ? data.tags.join(", ") : "",
+      mainEntityOfPage: {
+        "@type": "WebPage",
+        "@id": `${baseUrl}/blog/${data.slug}`,
+      },
+      image: data.image ? data.image : `${baseUrl}/og-image.png`,
     };
   }
 
-  if (type === "organization") {
+  if (type === "blog-list") {
+    const itemListElement = data.posts.map((post: any, index: number) => ({
+      "@type": "ListItem",
+      position: index + 1,
+      url: `${baseUrl}/blog/${post.slug}`,
+      name: post.title,
+      description: post.excerpt,
+    }));
+
+    return {
+      "@context": "https://schema.org",
+      "@type": "CollectionPage",
+      name: "Blog - Abhoy Sarkar",
+      description:
+        "Articles and insights on web development, design systems, performance optimization, and modern web technologies.",
+      url: `${baseUrl}/blog`,
+      mainEntity: {
+        "@type": "ItemList",
+        itemListElement: itemListElement,
+      },
+    };
+  }
+
+  if (type === "person") {
     return {
       "@context": "https://schema.org",
       "@type": "Person",
-      name: "Felix Macaspac",
-      url: baseUrl,
-      sameAs: [
-        "https://github.com/felixmacaspac",
-        "https://linkedin.com/in/felixmacaspac",
+      name: data.name || "Abhoy Sarkar",
+      url: data.url || baseUrl,
+      sameAs: data.sameAs || [
+        "https://github.com/abhoy21",
+        "https://in.linkedin.com/in/abhoy-sarkar",
       ],
-      jobTitle: "Frontend Developer",
-      description: "HubSpot CMS Developer from Philippines",
+      jobTitle: data.jobTitle || "Software Developer",
+      description:
+        data.description ||
+        "Software Developer specializing in Go, Next.js, Prisma and PostgreSQL.",
+      email: data.email || "sarkar.ab07@gmail.com",
+      image: data.image || `${baseUrl}/og-image.png`,
+    };
+  }
+
+  if (type === "website") {
+    return {
+      "@context": "https://schema.org",
+      "@type": "WebSite",
+      name: data.name || "Abhoy Sarkar Portfolio",
+      url: data.url || baseUrl,
+      description:
+        data.description || "Portfolio of Abhoy Sarkar, a Software Developer.",
+      author: {
+        "@type": "Person",
+        name: data.authorName || "Abhoy Sarkar",
+      },
+      potentialAction: {
+        "@type": "SearchAction",
+        target: `${baseUrl}/search?q={search_term_string}`,
+        "query-input": "required name=search_term_string",
+      },
     };
   }
 }
@@ -149,3 +211,4 @@ export async function generateStaticParams(project: Project[]) {
     slug: project.slug,
   }));
 }
+

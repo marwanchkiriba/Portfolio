@@ -7,6 +7,7 @@ import { useEffect } from "react";
 import { Calendar, ChevronLeft } from "lucide-react";
 import SearchWidget from "@/components/SearchWidget";
 import AdBanner from "@/components/ad-banner";
+import { generateStructuredData } from "@/lib/seo";
 
 export default function BlogPage() {
   useEffect(() => {
@@ -20,9 +21,17 @@ export default function BlogPage() {
     return dateB.getTime() - dateA.getTime();
   });
 
+  const structuredData = generateStructuredData("blog-list", {
+    posts: sortedPosts,
+  });
+
   return (
     <div className="min-h-screen bg-background text-foreground">
       <main className="min-h-screen">
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }}
+        />
         <div className="max-w-4xl mx-auto px-6 sm:px-8 lg:px-16 py-20 sm:py-32">
           <div className="flex items-center justify-between mb-16">
             <Link
