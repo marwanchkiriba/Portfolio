@@ -1,4 +1,4 @@
-import { GoogleAnalytics } from "@next/third-parties/google";
+import Script from "next/script";
 import type React from "react";
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
@@ -137,7 +137,21 @@ export default function RootLayout({
           }}
         />
         {/* <AdSense pId={process.env.NEXT_PUBLIC_GOOGLE_ADS_CLIENT_ID!} /> */}
-        <GoogleAnalytics gaId={process.env.NEXT_PUBLIC_GA_ID!} />
+        {/* <AdSense pId={process.env.NEXT_PUBLIC_GOOGLE_ADS_CLIENT_ID!} /> */}
+        <Script
+          src={`https://www.googletagmanager.com/gtag/js?id=${process.env.NEXT_PUBLIC_GA_ID}`}
+          strategy="lazyOnload"
+        />
+        <Script id="google-analytics" strategy="lazyOnload">
+          {`
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', '${process.env.NEXT_PUBLIC_GA_ID}', {
+              page_path: window.location.pathname,
+            });
+          `}
+        </Script>
         <ThemeProvider attribute="class" enableSystem defaultTheme="dark">
           {children}
         </ThemeProvider>
