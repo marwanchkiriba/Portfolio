@@ -5,8 +5,7 @@ import { Inter } from "next/font/google";
 import "./globals.css";
 import { generateStructuredData } from "@/lib/seo";
 import { ThemeProvider } from "@/components/theme-provider";
-import SearchWidget from "@/components/SearchWidget";
-import AdSense from "@/components/ad-sense";
+
 
 const inter = Inter({
   subsets: ["latin"],
@@ -123,7 +122,8 @@ export default function RootLayout({
 
   return (
     <html lang="en" className={`${inter.variable} dark`}>
-      <head>
+      <body className="font-sans antialiased">
+        <link rel="preconnect" href="https://pagead2.googlesyndication.com" />
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{
@@ -136,17 +136,8 @@ export default function RootLayout({
             __html: JSON.stringify(websiteSchema),
           }}
         />
-        {/* {process.env.NEXT_PUBLIC_GOOGLE_ADS_CLIENT_ID && (
-          <script
-            async
-            src={`https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=${process.env.NEXT_PUBLIC_GOOGLE_ADS_CLIENT_ID}`}
-            crossOrigin="anonymous"
-          ></script>
-        )} */}
-        <AdSense pId={process.env.NEXT_PUBLIC_GOOGLE_ADS_CLIENT_ID!} />
-      </head>
-      <GoogleAnalytics gaId={process.env.NEXT_PUBLIC_GA_ID!} />
-      <body className="font-sans antialiased">
+        {/* <AdSense pId={process.env.NEXT_PUBLIC_GOOGLE_ADS_CLIENT_ID!} /> */}
+        <GoogleAnalytics gaId={process.env.NEXT_PUBLIC_GA_ID!} />
         <ThemeProvider attribute="class" enableSystem defaultTheme="dark">
           {children}
         </ThemeProvider>
