@@ -82,12 +82,11 @@ export default function Home() {
     {
       name: "WriteX — AI-Powered Content Generation Platform",
       description:
-        "AI-driven writing platform that boosted content creation efficiency by 30%. Includes 20+ specialized templates, SEO-optimized text generation using Gemini AI, Razorpay payments, and a robust content management system.",
+        "AI-driven writing platform that boosted content creation efficiency by 30%. Includes 20+ specialized templates, SEO-optimized text generation using Gemini AI, and a robust content management system.",
       tech: [
         "Next.js",
         "Next-Auth",
         "Gemini AI",
-        "Razorpay",
         "Tailwind CSS",
         "Shadcn UI",
       ],

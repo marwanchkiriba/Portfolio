@@ -119,20 +119,19 @@ MindSketch was built to solve a key collaboration problem: most diagramming tool
     slug: "aipowered-content-generation-platform",
     name: "WriteX — AI-Powered Content Generation Platform",
     description:
-      "AI-driven writing platform that boosted content creation efficiency by 30%. Includes 20+ specialized templates, SEO-optimized text generation using Gemini AI, Razorpay payments, and a robust content management system.",
+      "AI-driven writing platform that boosted content creation efficiency by 30%. Includes 20+ specialized templates, SEO-optimized text generation using Gemini AI, and a robust content management system.",
     longDescription: `
 WriteX was designed to eliminate the inconsistent, slow content production process that many creators face daily. The goal was to create a high-speed, SEO-focused AI writing environment with reliable templates and a smooth subscription workflow.
 
 **Key Challenges**
 - Generating SEO-optimized long-form content with high factual accuracy.
 - Building 20+ reusable content templates that work across industries.
-- Integrating seamless authentication and payment flows without breaking UX.
+- Integrating seamless authentication flows without breaking UX.
 - Optimizing AI prompts to minimize hallucinations and maintain brand tone.
 
 **Key Learnings**
 - Prompt-chaining with Gemini AI reduced content rewrites by 35%.
 - A modular template system boosts generation speed and minimizes maintenance.
-- Razorpay subscriptions required careful webhook validation to avoid fraud.
 - UI consistency improved drastically with Shadcn UI + Tailwind.
 
 **Uniqueness**
@@ -149,7 +148,6 @@ WriteX was designed to eliminate the inconsistent, slow content production proce
       "Next.js",
       "Next-Auth",
       "Gemini AI",
-      "Razorpay",
       "Tailwind CSS",
       "Shadcn UI",
     ],
