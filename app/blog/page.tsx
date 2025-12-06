@@ -39,7 +39,7 @@ export default function BlogPage() {
               className="inline-flex items-center gap-2 text-muted-foreground hover:text-foreground transition-colors duration-300"
             >
               <ChevronLeft className="w-5 h-5" />
-              Back to portfolio
+              Retour au portfolio
             </Link>
             <ThemeToggle />
           </div>
@@ -48,12 +48,12 @@ export default function BlogPage() {
             {/* Header */}
             <div className="space-y-4">
               <h1 className="text-4xl sm:text-5xl lg:text-6xl font-light">
-                Blogs
+                Articles
               </h1>
               <p className="text-lg text-muted-foreground max-w-2xl">
-                Articles and insights on web development, design systems,
-                performance optimization, and modern web technologies, sharing
-                what I&apos;ve learned to help developers improve their skills.
+                Notes sur mes projets de BUT Informatique, ma stack full-stack
+                (PHP, JavaScript/Node.js, React, SQL) et ma recherche de stage
+                à partir de mars 2026.
               </p>
               <SearchWidget />
             </div>
@@ -92,7 +92,7 @@ export default function BlogPage() {
                       </div>
 
                       <div className="flex items-center gap-2 text-sm text-muted-foreground group-hover:text-foreground transition-colors duration-300 pt-2">
-                        <span>Read more</span>
+                        <span>Lire</span>
                         <svg
                           className="w-4 h-4 transform group-hover:translate-x-1 transition-transform duration-300"
                           fill="none"

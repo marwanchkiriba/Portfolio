@@ -21,7 +21,7 @@ export default function ProjectsPage() {
               className="inline-flex items-center gap-2 text-muted-foreground hover:text-foreground transition-colors duration-300"
             >
               <ChevronLeft className="w-5 h-5" />
-              Back to portfolio
+              Retour au portfolio
             </Link>
             <ThemeToggle />
           </div>
@@ -30,11 +30,12 @@ export default function ProjectsPage() {
             {/* Header */}
             <div className="space-y-4">
               <h1 className="text-4xl sm:text-5xl lg:text-6xl font-light">
-                Featured Projects
+                Projets
               </h1>
               <p className="text-lg text-muted-foreground max-w-2xl">
-                A curated selection of projects that showcase my expertise in
-                full-stack development, design systems, and devops.
+                Sélection de projets réalisés pendant mon BUT Informatique et en
+                autonomie : applications full stack, temps réel et outils
+                métiers.
               </p>
             </div>
 

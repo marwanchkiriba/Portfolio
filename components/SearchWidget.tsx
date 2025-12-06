@@ -67,7 +67,7 @@ export default function SearchWidget() {
                   setOpen(true);
                 }}
                 onFocus={() => setOpen(true)}
-                placeholder="Search posts — try “devops”, “redis”, or tags"
+                placeholder="Rechercher un article (ex: stage, stack, projet)"
                 className="flex-1 bg-transparent text-foreground placeholder:text-muted-foreground text-sm outline-none"
                 aria-label="Search blog posts"
                 autoComplete="off"

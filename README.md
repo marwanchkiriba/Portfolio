@@ -22,7 +22,7 @@ This project includes a lockfile for pnpm — recommended for consistent install
 
 ```bash
 # Clone the repository
-git clone https://github.com/abhoy21/portfolio.git
+git clone <votre-fork>.git
 
 # Install dependencies (uses pnpm)
 pnpm install

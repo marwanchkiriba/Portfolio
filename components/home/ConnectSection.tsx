@@ -8,21 +8,21 @@ export default function ConnectSection({ socials }: { socials: any[] }) {
   return (
     <div className="grid lg:grid-cols-2 gap-12 sm:gap-16">
       <div className="space-y-6 sm:space-y-8">
-        <h2 className="text-3xl sm:text-4xl font-medium">Let's Connect</h2>
+        <h2 className="text-3xl sm:text-4xl font-medium">Restons en contact</h2>
 
         <div className="space-y-6">
           <p className="text-lg sm:text-xl text-muted-foreground leading-relaxed">
-            Always interested in new opportunities, collaborations, and
-            conversations about technology and design.
+            Ouvert aux opportunités de stage (4-6 mois dès mars 2026), projets
+            web/mobile et collaborations techniques.
           </p>
 
           <div className="space-y-4">
             <Link
-              href="mailto:sarkar.ab07@gmail.com"
+              href="mailto:marwanchkiriba9@gmail.com"
               className="group flex items-center gap-3 text-foreground hover:text-muted-foreground transition-colors duration-300"
             >
               <span className="text-base sm:text-lg">
-                sarkar.ab07@gmail.com
+                marwanchkiriba9@gmail.com
               </span>
               <svg
                 className="w-5 h-5 transform group-hover:translate-x-1 transition-transform duration-300"
@@ -43,31 +43,31 @@ export default function ConnectSection({ socials }: { socials: any[] }) {
       </div>
 
       <div className="space-y-6 sm:space-y-8">
-        <div className="text-sm text-muted-foreground font-mono">ELSEWHERE</div>
+        <div className="text-sm text-muted-foreground font-mono">RÉSEAUX</div>
 
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-              {socials.map((social) => (
-                <Tooltip key={social.name}>
-                  <TooltipTrigger asChild>
-                    <Link
-                      href={social.url}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="group p-4 bg-accent/45 backdrop-blur-lg border border-dashed border-border rounded-lg hover:border-muted-foreground/50 transition-all duration-300 hover:shadow-sm"
-                    >
-                      <div className="space-y-2">
-                        <div className="text-foreground group-hover:text-muted-foreground transition-colors duration-300">
-                          {social.name}
-                        </div>
-                        <div className="text-sm text-muted-foreground">
-                          {social.handle}
-                        </div>
-                      </div>
-                    </Link>
-                  </TooltipTrigger>
-                  <TooltipContent side="top">Open {social.name}</TooltipContent>
-                </Tooltip>
-              ))}
+          {socials.map((social) => (
+            <Tooltip key={social.name}>
+              <TooltipTrigger asChild>
+                <Link
+                  href={social.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="group p-4 bg-accent/45 backdrop-blur-lg border border-dashed border-border rounded-lg hover:border-muted-foreground/50 transition-all duration-300 hover:shadow-sm"
+                >
+                  <div className="space-y-2">
+                    <div className="text-foreground group-hover:text-muted-foreground transition-colors duration-300">
+                      {social.name}
+                    </div>
+                    <div className="text-sm text-muted-foreground">
+                      {social.handle}
+                    </div>
+                  </div>
+                </Link>
+              </TooltipTrigger>
+              <TooltipContent side="top">Ouvrir {social.name}</TooltipContent>
+            </Tooltip>
+          ))}
         </div>
       </div>
     </div>

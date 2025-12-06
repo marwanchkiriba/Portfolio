@@ -9,8 +9,8 @@ export default function ProjectsList({ projects }: { projects: any[] }) {
   return (
     <div className="space-y-12 sm:space-y-16">
       <div className="flex flex-col sm:flex-row sm:items-end sm:justify-between gap-4">
-        <h2 className="text-3xl sm:text-4xl font-medium">Featured Projects</h2>
-        <div className="text-sm text-muted-foreground font-mono">SHOWCASE</div>
+        <h2 className="text-3xl sm:text-4xl font-medium">Projets en avant</h2>
+        <div className="text-sm text-muted-foreground font-mono">PORTFOLIO</div>
       </div>
 
       <div className="space-y-8 sm:space-y-12">
@@ -71,11 +71,11 @@ export default function ProjectsList({ projects }: { projects: any[] }) {
               href="/projects"
               className="px-4 py-2 rounded-lg hover:border-muted-foreground/50 text-sm transition-all duration-300 hover:shadow-sm flex items-center gap-2 bg-accent"
             >
-              All Projects
+              Tous les projets
               <ArrowUpRight className="w-4 h-4" />
             </Link>
           </TooltipTrigger>
-          <TooltipContent side="top">See all projects</TooltipContent>
+          <TooltipContent side="top">Voir tous les projets</TooltipContent>
         </Tooltip>
       </div>
     </div>

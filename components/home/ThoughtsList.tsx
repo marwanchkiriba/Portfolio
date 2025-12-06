@@ -9,10 +9,8 @@ export default function ThoughtsList({ posts }: { posts: any[] }) {
   return (
     <div className="space-y-12 sm:space-y-16">
       <div className="flex flex-col sm:flex-row sm:items-end sm:justify-between gap-4">
-        <h2 className="text-3xl sm:text-4xl font-medium">Featured Thoughts</h2>
-        <div className="text-sm text-muted-foreground font-mono">
-          PERSPECTIVES
-        </div>
+        <h2 className="text-3xl sm:text-4xl font-medium">Articles récents</h2>
+        <div className="text-sm text-muted-foreground font-mono">NOTES</div>
       </div>
 
       <div className="grid gap-6 sm:gap-8 lg:grid-cols-2">
@@ -37,7 +35,7 @@ export default function ThoughtsList({ posts }: { posts: any[] }) {
               </p>
 
               <div className="flex items-center gap-2 text-sm text-muted-foreground group-hover:text-foreground transition-colors duration-300">
-                <span>Read more</span>
+                <span>Lire</span>
                 <svg
                   className="w-4 h-4 transform group-hover:translate-x-1 transition-transform duration-300"
                   fill="none"
@@ -64,11 +62,11 @@ export default function ThoughtsList({ posts }: { posts: any[] }) {
               href="/blog"
               className="px-4 py-2 bg-accent border border-border rounded-lg hover:border-muted-foreground/50 text-sm transition-all duration-300 hover:shadow-sm flex items-center gap-2"
             >
-              More Blogs
+              Tous les articles
               <ArrowUpRight className="w-4 h-4" />
             </Link>
           </TooltipTrigger>
-          <TooltipContent side="top">More blog posts</TooltipContent>
+          <TooltipContent side="top">Voir tous les articles</TooltipContent>
         </Tooltip>
       </div>
     </div>

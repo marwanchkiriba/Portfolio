@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { FileText, Github, File } from "lucide-react";
+import { FileText, Github } from "lucide-react";
 import { Tooltip, TooltipTrigger, TooltipContent } from "../ui/tooltip";
 
 export default function HeaderIntro() {
@@ -10,28 +10,30 @@ export default function HeaderIntro() {
       <div className="lg:col-span-3 space-y-6 sm:space-y-8">
         <div className="space-y-3 sm:space-y-2">
           <div className="text-sm text-muted-foreground font-mono tracking-wider">
-            SOFTWARE DEVELOPER / {new Date().getFullYear()}
+            DÉVELOPPEUR FULL STACK / {new Date().getFullYear()}
           </div>
           <h1 className="text-5xl sm:text-6xl lg:text-7xl font-medium tracking-tight">
-            Abhoy <span className="text-muted-foreground">Sarkar</span>
+            Marwan <span className="text-muted-foreground">Chkiriba</span>
           </h1>
         </div>
 
         <div className="space-y-6 max-w-md">
           <p className="text-lg sm:text-xl text-muted-foreground leading-relaxed">
-            Software Developer building fast and scalable digital products using{" "}
-            <span className="text-foreground">Next.js</span>,{" "}
-            <span className="text-foreground">TypeScript</span>,{" "}
-            <span className="text-foreground">Node.js</span>,and{" "}
-            <span className="text-foreground">PostgreSQL</span>.
+            Étudiant en 3e année de BUT Informatique (IUT de Villetaneuse). Je
+            construis des applications web et mobiles full stack avec{" "}
+            <span className="text-foreground">PHP</span>,{" "}
+            <span className="text-foreground">JavaScript/Node.js</span>,{" "}
+            <span className="text-foreground">React</span> et{" "}
+            <span className="text-foreground">SQL</span>. Disponible pour un
+            stage de 4 à 6 mois dès mars 2026.
             <Tooltip>
               <TooltipTrigger asChild>
                 <Link href="/about-me" className="underline ml-1 text-sm">
-                  Learn more about me.
+                  En savoir plus.
                 </Link>
               </TooltipTrigger>
               <TooltipContent side="top">
-                About me — experience, skills, and contact
+                Parcours, compétences et informations de contact
               </TooltipContent>
             </Tooltip>
           </p>
@@ -41,32 +43,32 @@ export default function HeaderIntro() {
               <div className="w-2 h-2 bg-green-500 rounded-full animate-pulse"></div>
               <Tooltip>
                 <TooltipTrigger asChild>
-                  <Link href={"mailto:sarkar.ab07@gmail.com"}>
-                    Software Developer for Hire
+                  <Link href={"mailto:marwanchkiriba9@gmail.com"}>
+                    Stage full stack dès mars 2026
                   </Link>
                 </TooltipTrigger>
                 <TooltipContent side="top">
-                  sarkar.ab07@gmail.com
+                  marwanchkiriba9@gmail.com
                 </TooltipContent>
               </Tooltip>
             </div>
-            <div>India</div>
+            <div>Le Blanc-Mesnil, France</div>
           </div>
 
           <div className="flex flex-wrap gap-3 pt-4">
             <Tooltip>
               <TooltipTrigger asChild>
                 <Link
-                  href="https://drive.google.com/file/d/1xWa-NjprYyaIU_TGWh_3RB2bctahn6aI/view"
+                  href="/cv-marwan.pdf"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="flex-1 px-4 py-2 bg-foreground rounded-lg hover:border-muted-foreground/50 text-sm text-background transition-all duration-300 hover:shadow-sm flex items-center justify-center gap-2"
                 >
                   <FileText className="w-4 h-4" />
-                  Resume
+                  CV
                 </Link>
               </TooltipTrigger>
-              <TooltipContent side="top">Open resume (new tab)</TooltipContent>
+              <TooltipContent side="top">Ouvrir le CV (nouvel onglet)</TooltipContent>
             </Tooltip>
 
             <Tooltip>
@@ -76,25 +78,12 @@ export default function HeaderIntro() {
                   className="flex-1 px-4 py-2 rounded-lg hover:border-muted-foreground/50 text-sm transition-all duration-300 hover:shadow-sm flex items-center justify-center gap-2 bg-accent"
                 >
                   <Github className="w-4 h-4" />
-                  Projects
+                  Projets
                 </Link>
               </TooltipTrigger>
-              <TooltipContent side="top">View projects</TooltipContent>
+              <TooltipContent side="top">Voir les projets</TooltipContent>
             </Tooltip>
 
-            <Tooltip>
-              <TooltipTrigger asChild>
-                <Link
-                  href="/blog"
-                  className="max-sm:hidden flex-1 px-4 py-2 bg-foreground/5 backdrop-blur-xl border border-border rounded-lg hover:border-muted-foreground/50 text-sm transition-all duration-300 hover:shadow-sm flex items-center justify-center gap-2"
-                >
-                  <File className="w-4 h-4" />
-                  Read Blogs
-                  <span className="sm:hidden">/ Articles</span>
-                </Link>
-              </TooltipTrigger>
-              <TooltipContent side="top">Browse blog posts</TooltipContent>
-            </Tooltip>
           </div>
         </div>
       </div>
@@ -141,12 +130,13 @@ export default function HeaderIntro() {
       <div className="lg:col-span-2 flex flex-col justify-end space-y-6 sm:space-y-8 mt-8 lg:mt-0">
         <div className="space-y-4">
           <div className="text-sm text-muted-foreground font-mono">
-            WHAT I DO
+            CE QUE J’AIME FAIRE
           </div>
           <div className="space-y-2">
-            <div className="text-foreground">Building Products</div>
+            <div className="text-foreground">Construire des produits utiles</div>
             <div className="text-muted-foreground">
-              From idea → architecture → development → launch
+              De l’idée à la mise en prod : conception, API, base de données,
+              tests et déploiement.
             </div>
           </div>
         </div>
@@ -155,13 +145,13 @@ export default function HeaderIntro() {
           <div className="text-sm text-muted-foreground font-mono">FOCUS</div>
           <div className="flex flex-wrap gap-2">
             {[
-              "Full-Stack Development",
-              "Next.js / TypeScript",
-              "Golang / Node.js",
-              "PostgreSQL",
-              "API Design & Development",
-              "Deployment & CI/CD",
-              "Cloud & Devops",
+              "PHP / JavaScript / Java",
+              "Node.js & Express",
+              "React / Tailwind CSS",
+              "MySQL & PostgreSQL",
+              "API REST & WebSockets",
+              "Tests & Qualité",
+              "Docker & outils DevOps",
             ].map((service) => (
               <span
                 key={service}

@@ -1,0 +1,10 @@
+{
+  "/_not-found/page": "/_not-found",
+  "/robots.txt/route": "/robots.txt",
+  "/page": "/",
+  "/about-me/page": "/about-me",
+  "/blog/page": "/blog",
+  "/projects/page": "/projects",
+  "/projects/[slug]/page": "/projects/[slug]",
+  "/blog/[slug]/page": "/blog/[slug]"
+}

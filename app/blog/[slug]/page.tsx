@@ -66,7 +66,7 @@ export default function BlogPostPage({
                   d="M15 19l-7-7 7-7"
                 />
               </svg>
-              Back to blog
+              Retour aux articles
             </Link>
             <ThemeToggle />
           </div>
@@ -82,9 +82,9 @@ export default function BlogPostPage({
                 <div className="flex flex-col sm:flex-row sm:items-center gap-4 text-sm text-muted-foreground font-mono">
                   <span>{post.date}</span>
                   <span className="hidden sm:block">•</span>
-                  <span>{post.readTime} read</span>
+                  <span>{post.readTime}</span>
                   <span className="hidden sm:block">•</span>
-                  <span>Abhoy Sarkar</span>
+                  <span>Marwan Chkiriba</span>
                 </div>
               </div>
             </div>
@@ -110,7 +110,7 @@ export default function BlogPostPage({
             {/* Related Posts */}
             <div className="space-y-4 pt-8 border-t border-border/50">
               <h3 className="text-sm text-muted-foreground font-mono">
-                More Articles
+                Autres articles
               </h3>
               <div className="grid gap-4 sm:grid-cols-2">
                 {blogPosts

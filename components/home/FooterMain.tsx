@@ -23,7 +23,7 @@ export default function FooterMain() {
       <div className="flex flex-col lg:flex-row justify-between items-start lg:items-center gap-6 sm:gap-8">
         <div className="space-y-2">
           <div className="text-sm text-muted-foreground">
-            © 2025 Abhoy Sarkar. All rights reserved.
+            © {new Date().getFullYear()} Marwan Chkiriba. Tous droits réservés.
           </div>
         </div>
 

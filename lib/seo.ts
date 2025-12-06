@@ -1,11 +1,11 @@
 // SEO utilities and metadata generation
 export function generateProjectMetadata(project: any) {
   const baseUrl =
-    process.env.NEXT_PUBLIC_BASE_URL || "https://www.abhoy.xyz";
+    process.env.NEXT_PUBLIC_BASE_URL || "https://marwanchkiriba.dev";
   const url = `${baseUrl}/projects/${project.slug}`;
 
   return {
-    title: `${project.name} | Abhoy Sarkar Portfolio`,
+    title: `${project.name} | Portfolio Marwan Chkiriba`,
     description: project.description,
     openGraph: {
       title: project.name,
@@ -34,11 +34,11 @@ export function generateProjectMetadata(project: any) {
 
 export function generateBlogMetadata(post: any) {
   const baseUrl =
-    process.env.NEXT_PUBLIC_BASE_URL || "https://www.abhoy.xyz";
+    process.env.NEXT_PUBLIC_BASE_URL || "https://marwanchkiriba.dev";
   const url = `${baseUrl}/blog/${post.slug}`;
 
   return {
-    title: `${post.title} | Abhoy Sarkar`,
+    title: `${post.title} | Marwan Chkiriba`,
     description: post.excerpt,
     openGraph: {
       title: post.title,
@@ -46,7 +46,7 @@ export function generateBlogMetadata(post: any) {
       url: url,
       type: "article",
       publishedTime: post.date,
-      authors: ["Abhoy Sarkar"],
+      authors: ["Marwan Chkiriba"],
       tags: post.tags,
     },
     twitter: {
@@ -78,7 +78,7 @@ export function generateStructuredData(
   data: any,
 ) {
   const baseUrl =
-    process.env.NEXT_PUBLIC_BASE_URL || "https://www.abhoy.xyz";
+    process.env.NEXT_PUBLIC_BASE_URL || "https://marwanchkiriba.dev";
 
   if (type === "project") {
     return {
@@ -88,7 +88,7 @@ export function generateStructuredData(
       description: data.description,
       author: {
         "@type": "Person",
-        name: "Abhoy Sarkar",
+        name: "Marwan Chkiriba",
       },
       datePublished: toIsoDate(data.year),
       image: data.image ? [data.image] : [`${baseUrl}/og-image.png`],
@@ -105,12 +105,12 @@ export function generateStructuredData(
       description: data.excerpt,
       author: {
         "@type": "Person",
-        name: "Abhoy Sarkar",
+        name: "Marwan Chkiriba",
         url: baseUrl,
       },
       publisher: {
         "@type": "Organization",
-        name: "Abhoy Sarkar",
+        name: "Marwan Chkiriba",
         logo: {
           "@type": "ImageObject",
           url: `${baseUrl}/og-image.png`,
@@ -140,9 +140,8 @@ export function generateStructuredData(
     return {
       "@context": "https://schema.org",
       "@type": "CollectionPage",
-      name: "Blog - Abhoy Sarkar",
-      description:
-        "Articles and insights on web development, design systems, performance optimization, and modern web technologies.",
+      name: "Blog - Marwan Chkiriba",
+      description: "Notes sur mes projets, ma stack et ma recherche de stage.",
       url: `${baseUrl}/blog`,
       mainEntity: {
         "@type": "ItemList",
@@ -155,17 +154,16 @@ export function generateStructuredData(
     return {
       "@context": "https://schema.org",
       "@type": "Person",
-      name: data.name || "Abhoy Sarkar",
+      name: data.name || "Marwan Chkiriba",
       url: data.url || baseUrl,
       sameAs: data.sameAs || [
-        "https://github.com/abhoy21",
-        "https://in.linkedin.com/in/abhoy-sarkar",
+        "https://github.com/marwanchkiriba",
       ],
-      jobTitle: data.jobTitle || "Software Developer",
+      jobTitle: data.jobTitle || "Développeur full stack",
       description:
         data.description ||
-        "Software Developer specializing in Go, Next.js, Prisma and PostgreSQL.",
-      email: data.email || "sarkar.ab07@gmail.com",
+        "Développeur full stack (PHP, JavaScript/Node.js, React, SQL) en 3e année de BUT Informatique.",
+      email: data.email || "marwanchkiriba9@gmail.com",
       image: data.image || `${baseUrl}/og-image.png`,
     };
   }
@@ -174,13 +172,14 @@ export function generateStructuredData(
     return {
       "@context": "https://schema.org",
       "@type": "WebSite",
-      name: data.name || "Abhoy Sarkar Portfolio",
+      name: data.name || "Portfolio Marwan Chkiriba",
       url: data.url || baseUrl,
       description:
-        data.description || "Portfolio of Abhoy Sarkar, a Software Developer.",
+        data.description ||
+        "Portfolio de Marwan Chkiriba, développeur full stack (BUT Informatique).",
       author: {
         "@type": "Person",
-        name: data.authorName || "Abhoy Sarkar",
+        name: data.authorName || "Marwan Chkiriba",
       },
       potentialAction: {
         "@type": "SearchAction",

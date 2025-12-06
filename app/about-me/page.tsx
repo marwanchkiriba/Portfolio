@@ -5,17 +5,20 @@ import { ChevronLeft } from "lucide-react";
 
 export default function AboutPage() {
   const socials = [
-    { name: "GitHub", handle: "@abhoy21", url: "https://github.com/abhoy21" },
-    { name: "X", handle: "@kakarottwts", url: "https://x.com/kakarottwts" },
     {
-      name: "WhatsApp",
-      handle: "+91 85830 07404",
-      url: "https://wa.me/+918583007404",
+      name: "GitHub",
+      handle: "@marwanchkiriba",
+      url: "https://github.com/marwanchkiriba",
     },
     {
-      name: "LinkedIn",
-      handle: "abhoy-sarkar",
-      url: "https://www.linkedin.com/in/abhoy-sarkar/",
+      name: "E-mail",
+      handle: "marwanchkiriba9@gmail.com",
+      url: "mailto:marwanchkiriba9@gmail.com",
+    },
+    {
+      name: "WhatsApp",
+      handle: "+33 6 62 89 56 17",
+      url: "https://wa.me/33662895617",
     },
   ];
 
@@ -34,10 +37,10 @@ export default function AboutPage() {
           type="button"
           onClick={() => window.history.back()}
           className="mb-8 flex items-center gap-2 text-sm text-muted-foreground hover:text-foreground transition-colors"
-          aria-label="Go back"
+          aria-label="Retour"
         >
           <ChevronLeft className="h-5 w-5" />
-          Back
+          Retour
         </button>
 
         <header className="mb-12">
@@ -45,27 +48,27 @@ export default function AboutPage() {
             id="about-heading"
             className="text-4xl sm:text-5xl font-medium tracking-tight"
           >
-            About me
+            À propos
           </h1>
 
           <div className="mt-4 flex flex-wrap gap-2 items-center" aria-hidden>
             <span className="px-3 py-1 text-xs bg-accent/45 backdrop-blur-lg border border-dashed border-border rounded-lg">
-              Software Developer — India
+              Développeur full stack — Le Blanc-Mesnil
             </span>
             <span className="px-3 py-1 text-xs bg-accent/45 backdrop-blur-lg border border-dashed border-border rounded-lg">
-              Software Engineer for hire
+              BUT Informatique (IUT de Villetaneuse)
             </span>
             <span className="px-3 py-1 text-xs bg-accent/45 backdrop-blur-lg border border-dashed border-border rounded-lg">
-              Full-Stack Developer for hire
+              Stage 4-6 mois dès mars 2026
             </span>
           </div>
 
           <p className="mt-6 text-muted-foreground max-w-2xl leading-relaxed">
-            I'm a software developer based in India and available for hire as a
-            software engineer or full‑stack developer. I build practical web
-            systems, clean APIs, dependable backends, and responsive frontends,
-            prioritizing accessibility, predictable performance, and
-            maintainable code.
+            Étudiant en 3e année de BUT Informatique à l’IUT de Villetaneuse
+            (Sorbonne Paris Nord). Je développe des applications web full stack
+            (PHP, JavaScript/Node.js, React, SQL) et je cherche un stage de 4 à
+            6 mois à partir de mars 2026 pour progresser sur le front, le back,
+            les API, les bases de données et les tests.
           </p>
         </header>
 
@@ -74,12 +77,11 @@ export default function AboutPage() {
             Introduction
           </h2>
           <p className="mt-4 text-muted-foreground leading-relaxed">
-            I build and ship web applications that solve real problems. My work
-            spans frontend and backend: user interfaces with Next.js and
-            TypeScript, APIs and services in Node.js or Go, and resilient
-            deployments on cloud platforms such as AWS and Azure. I focus on
-            readable code, reliable tests, and automation so work can be
-            released with confidence.
+            J’aime travailler sur l’ensemble de la chaîne : interfaces
+            réactives, API robustes, modèles de données clairs et déploiements
+            fiables. Mon objectif est d’intégrer une équipe qui me permette de
+            consolider mes bases en développement web/mobile, QA et DevOps tout
+            en livrant des fonctionnalités utiles.
           </p>
         </section>
 
@@ -89,55 +91,27 @@ export default function AboutPage() {
           aria-labelledby="what-i-do-heading"
         >
           <h2 id="what-i-do-heading" className="text-2xl font-semibold">
-            What I do
+            Compétences clés
           </h2>
           <p className="mt-4 text-muted-foreground leading-relaxed">
-            I focus on turning ideas into reliable products. That usually means
-            defining clear API contracts, modeling data, implementing features
-            on the frontend and backend, and automating builds and releases so
-            teams can move quickly without constant firefighting.
+            Les technos que je pratique le plus pendant mon BUT et mes projets
+            personnels.
           </p>
 
           <ul className="mt-6 grid grid-cols-1 sm:grid-cols-2 gap-4 text-sm">
             <li className="p-4 bg-accent/45 backdrop-blur border border-border rounded-lg">
-              Full-stack development
+              Front-end : React, Tailwind CSS, Astro, Vue.js
             </li>
             <li className="p-4 bg-accent/45 backdrop-blur border border-border rounded-lg">
-              API design & development
+              Back-end : Node.js/Express, PHP, Java, WebSockets
             </li>
             <li className="p-4 bg-accent/45 backdrop-blur border border-border rounded-lg">
-              Performance & scalability
+              Bases de données : MySQL, PostgreSQL, Redis, MongoDB
             </li>
             <li className="p-4 bg-accent/45 backdrop-blur border border-border rounded-lg">
-              Devops, monitoring & CI/CD
+              Outils : Docker, Git/GitHub, tests (JUnit), Wireshark
             </li>
           </ul>
-        </section>
-
-        <section
-          id="beliefs"
-          className="mb-12"
-          aria-labelledby="beliefs-heading"
-        >
-          <h2 id="beliefs-heading" className="text-2xl font-semibold">
-            What I believe in
-          </h2>
-          <div className="mt-4 space-y-4 text-muted-foreground leading-relaxed">
-            <p>
-              Build with intention: focus on clear architecture, predictable
-              data flows, and code that is easy to understand and improve over
-              time.
-            </p>
-            <p>
-              Communicate early: share decisions, constraints, and progress with
-              the team to keep work aligned and avoid unnecessary complexity.
-            </p>
-            <p>
-              Improve continuously: use feedback from users, performance data,
-              and real-world issues to refine systems and deliver dependable
-              software.
-            </p>
-          </div>
         </section>
 
         <section
@@ -146,69 +120,38 @@ export default function AboutPage() {
           aria-labelledby="who-with-heading"
         >
           <h2 id="who-with-heading" className="text-2xl font-semibold">
-            Who I work with
+            Environnement recherché
           </h2>
           <p className="mt-4 text-muted-foreground leading-relaxed">
-            I enjoy working with small engineering teams and product-focused
-            startups where engineering discipline matters. I collaborate closely
-            with product managers and engineering leads to deliver features that
-            are well-instrumented, testable, and easy to maintain.
+            Une équipe qui combine bonnes pratiques et accompagnement pour un
+            stagiaire : revues de code, échanges techniques et mise en production
+            régulière.
           </p>
 
           <div className="mt-6 grid grid-cols-1 sm:grid-cols-3 gap-4 text-sm">
             <div className="p-4 bg-accent/45 backdrop-blur border border-border rounded-lg">
-              Startup teams
+              Produits web ou mobiles
             </div>
             <div className="p-4 bg-accent/45 backdrop-blur border border-border rounded-lg">
-              Engineering teams
+              API, bases de données, temps réel
             </div>
             <div className="p-4 bg-accent/45 backdrop-blur border border-border rounded-lg">
-              Backend & infrastructure
+              Qualité, tests, sécurité
             </div>
             <div className="p-4 bg-accent/45 backdrop-blur border border-border rounded-lg">
-              Frontend teams
+              Déploiement et CI/CD
             </div>
           </div>
         </section>
 
-        <section
-          id="approach"
-          className="mb-12"
-          aria-labelledby="approach-heading"
-        >
-          <h2 id="approach-heading" className="text-2xl font-semibold">
-            A little about my approach
-          </h2>
-          <ol className="mt-4 list-decimal ml-5 space-y-3 text-muted-foreground leading-relaxed">
-            <li>
-              Start by understanding the people who will use the product and the
-              business constraints around it, this keeps implementations
-              focused.
-            </li>
-            <li>
-              Keep interfaces and data models explicit. Predictable contracts
-              reduce bugs and make future changes safe.
-            </li>
-            <li>
-              Automate delivery: CI/CD pipelines and repeatable cloud
-              deployments so teams can release reliably and frequently.
-            </li>
-            <li>
-              Observe and iterate: use logs and metrics to find fragility and
-              prioritize fixes that improve reliability for real users.
-            </li>
-          </ol>
-        </section>
-
         <section id="cta" className="py-8" aria-labelledby="cta-heading">
           <h2 id="cta-heading" className="text-2xl font-semibold">
-            Available for hire
+            Disponible pour un stage
           </h2>
           <p className="mt-4 text-muted-foreground leading-relaxed">
-            Hiring a software engineer or full‑stack developer? I'm open to
-            full-time roles and short-term contracts. I prefer conversations
-            that start with the problem you want to solve, reach out and we can
-            schedule a quick call to see if we're a fit.
+            Je recherche un stage de 4 à 6 mois à partir de mars 2026 en
+            développement full stack. Si vous avez des besoins sur du front/back,
+            des API ou du temps réel, je serai ravi d’en discuter.
           </p>
 
           <div className="mt-8">

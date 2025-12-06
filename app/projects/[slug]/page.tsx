@@ -67,7 +67,7 @@ export default function ProjectPage({
                   d="M15 19l-7-7 7-7"
                 />
               </svg>
-              Back to projects
+              Retour aux projets
             </Link>
             <ThemeToggle />
           </div>
@@ -93,7 +93,7 @@ export default function ProjectPage({
                       href={project.link}
                       className="bg-foreground text-background inline-flex items-center gap-2 px-6 py-3 border border-muted-foreground/30 rounded-lg hover:border-muted-foreground/50 transition-colors duration-300"
                     >
-                      Live Project
+                      Voir le projet
                       <svg
                         className="w-4 h-4"
                         fill="none"
@@ -116,14 +116,14 @@ export default function ProjectPage({
                       target="_blank"
                       className="inline-flex bg-accent/45 backdrop-blur-lg items-center gap-2 px-6 py-3 border border-muted-foreground/30 rounded-lg hover:border-muted-foreground/50 transition-colors duration-300"
                     >
-                      Source Code
+                      Code source
                       <Github className="w-4 h-4" />
                     </Link>
                   )}
                 </div>
                 {/* Technology Stack */}
                 <div className="space-y-4">
-                  <h2 className="text-2xl font-light">Technology Stack</h2>
+                  <h2 className="text-2xl font-light">Stack technique</h2>
                   <div className="flex flex-wrap gap-2">
                     {project.tech.map((tech) => (
                       <span
@@ -154,7 +154,7 @@ export default function ProjectPage({
             {/* Content */}
             <div className="prose prose-invert max-w-none space-y-8">
               <div className="space-y-4">
-                <h2 className="text-2xl font-light">Overview</h2>
+                <h2 className="text-2xl font-light">Présentation</h2>
                 {/* Enhanced Long Description */}
                 <div className="space-y-16">
                   {parseLongDescription(project.longDescription || "").map(

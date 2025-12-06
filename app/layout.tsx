@@ -15,62 +15,62 @@ const inter = Inter({
 
 export const metadata: Metadata = {
   title:
-    "Abhoy Sarkar — Software Developer (Typescript, Go, Next.js, Node.js, Postgresql)",
+    "Marwan Chkiriba — Développeur Full Stack (BUT Informatique)",
   description:
-    "Abhoy Sarkar is a Software Developer specializing in Go, Next.js, Prisma and PostgreSQL. Explore practical projects, code samples, and DevOps tips for building scalable web applications.",
+    "Étudiant en 3e année de BUT Informatique à l’IUT de Villetaneuse. Développement full stack (PHP, JavaScript/Node.js, React, SQL) et disponible pour un stage de 4 à 6 mois dès mars 2026.",
   keywords: [
-    "Full Stack Developer",
-    "Go Developer",
-    "Next.js Developer",
-    "React Developer",
-    "Golang",
+    "Développeur full stack",
+    "BUT Informatique",
+    "Stage développement",
     "Node.js",
-    "DevOps Engineer",
+    "PHP",
+    "React",
     "PostgreSQL",
-    "React Native",
-    "Software Engineer",
+    "MySQL",
+    "Java",
+    "JavaScript",
   ],
   authors: [
     {
-      name: "Abhoy Sarkar",
-      url: "https://abhoy.xyz",
+      name: "Marwan Chkiriba",
+      url: "https://marwanchkiriba.dev",
     },
   ],
-  creator: "Abhoy Sarkar",
-  publisher: "Abhoy Sarkar",
+  creator: "Marwan Chkiriba",
+  publisher: "Marwan Chkiriba",
   formatDetection: {
     email: true,
     address: false,
     telephone: false,
   },
-  metadataBase: new URL("https://www.abhoy.xyz"),
+  metadataBase: new URL("https://marwanchkiriba.dev"),
   alternates: {
-    canonical: "https://www.abhoy.xyz",
+    canonical: "https://marwanchkiriba.dev",
   },
   openGraph: {
     type: "website",
-    locale: "en_US",
-    url: "https://www.abhoy.xyz",
-    siteName: "Abhoy Sarkar Portfolio",
+    locale: "fr_FR",
+    url: "https://marwanchkiriba.dev",
+    siteName: "Portfolio Marwan Chkiriba",
     title:
-      "Abhoy Sarkar — Software Developer (Typescript, Go, Next.js, Node.js, Postgresql)",
+      "Marwan Chkiriba — Développeur Full Stack (BUT Informatique)",
     description:
-      "Explore projects and engineering notes by Abhoy Sarkar — Software Developer focused on Go, Next.js, Prisma and PostgreSQL.",
+      "Portfolio de Marwan Chkiriba, développeur full stack (PHP, JavaScript/Node.js, React, SQL) en 3e année de BUT Informatique.",
     images: [
       {
         url: "/og-image.png",
         width: 1200,
         height: 630,
-        alt: "Abhoy Sarkar Portfolio",
+        alt: "Portfolio Marwan Chkiriba",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
     title:
-      "Abhoy Sarkar — Software Developer (Typescript, Go, Next.js, Node.js, Postgresql)",
+      "Marwan Chkiriba — Développeur Full Stack (BUT Informatique)",
     description:
-      "Software Developer building production-ready web apps with Go, Next.js, Prisma and PostgreSQL. See projects, notes and deployment tips.",
+      "Développement full stack (PHP, JavaScript/Node.js, React, SQL) et recherche de stage dès mars 2026.",
     images: ["/og-image.png"],
   },
   robots: {
@@ -103,25 +103,25 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   const personSchema = generateStructuredData("person", {
-    name: "Abhoy Sarkar",
-    url: "https://www.abhoy.xyz",
-    email: "sarkar.ab07@gmail.com",
+    name: "Marwan Chkiriba",
+    url: "https://marwanchkiriba.dev",
+    email: "marwanchkiriba9@gmail.com",
     sameAs: [
-      "https://github.com/abhoy21",
-      "https://in.linkedin.com/in/abhoy-sarkar",
-      "https://www.youtube.com/shorts/nNH_S0kq3Sw?si=ezWg0XDpm-THAzJa",
+      "https://github.com/marwanchkiriba",
+      "https://marwanchkiriba.dev",
     ],
   });
 
   const websiteSchema = generateStructuredData("website", {
-    name: "Abhoy Sarkar Portfolio",
-    url: "https://www.abhoy.xyz",
-    description: "Portfolio of Abhoy Sarkar, a Software Developer.",
-    authorName: "Abhoy Sarkar",
+    name: "Portfolio Marwan Chkiriba",
+    url: "https://marwanchkiriba.dev",
+    description:
+      "Portfolio de Marwan Chkiriba, développeur full stack (BUT Informatique).",
+    authorName: "Marwan Chkiriba",
   });
 
   return (
-    <html lang="en" className={`${inter.variable} dark`}>
+    <html lang="fr" className={`${inter.variable} dark`}>
       <body className="font-sans antialiased">
         <link rel="preconnect" href="https://pagead2.googlesyndication.com" />
         <script
