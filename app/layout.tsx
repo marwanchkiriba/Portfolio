@@ -73,6 +73,11 @@ export const metadata: Metadata = {
       "Développement full stack (PHP, JavaScript/Node.js, React, SQL) et recherche de stage dès mars 2026.",
     images: ["/og-image.png"],
   },
+  icons: [
+    { rel: "icon", url: "/favicon-v2.ico" },
+    { rel: "shortcut icon", url: "/favicon-v2.ico" },
+    { rel: "apple-touch-icon", url: "/favicon-v2.ico" },
+  ],
   robots: {
     index: true,
     follow: true,
@@ -159,3 +164,4 @@ export default function RootLayout({
     </html>
   );
 }
+
